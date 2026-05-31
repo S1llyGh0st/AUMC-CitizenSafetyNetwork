@@ -1,19 +1,20 @@
-/* =========================
+ /* =========================
    CORE SYSTEM INIT
 ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("[SYSTEM] Main interface initialized");
+    console.log("[AUMC-CSN] Main interface initialized");
+    console.log("[WARNING] NODE INTERPRETATION LAYER ACTIVE");
 
     typewriterInit();
     enableRedactionReveal();
     enableHiddenToggle();
     randomCorruptionEvent();
+    initializeHiddenGlitchLayer(); // NEW ARG LAYER HOOK
 });
 
 /* =========================
-   TYPEWRITER EFFECT (optional)
-   Use: <div class="typewriter" data-text="Hello"></div>
+   TYPEWRITER EFFECT
 ========================= */
 
 function typewriterInit() {
@@ -38,7 +39,6 @@ function typewriterInit() {
 
 /* =========================
    REDACTION REVEAL SYSTEM
-   Click any .redacted to reveal hidden text
 ========================= */
 
 function enableRedactionReveal() {
@@ -58,7 +58,6 @@ function enableRedactionReveal() {
 
 /* =========================
    HIDDEN ENTRY TOGGLE SYSTEM
-   Use: .hidden elements become fully visible on click
 ========================= */
 
 function enableHiddenToggle() {
@@ -81,7 +80,6 @@ function enableHiddenToggle() {
 
 /* =========================
    RANDOM CORRUPTION EVENT
-   Occasional system glitch message
 ========================= */
 
 function randomCorruptionEvent() {
@@ -104,15 +102,21 @@ function randomCorruptionEvent() {
 }
 
 /* =========================
-   SIMPLE TERMINAL INPUT (optional)
-   Works if you add: <input id="terminalInput">
+   TERMINAL INPUT SYSTEM
 ========================= */
 
 const terminalCommands = {
     help: "AVAILABLE COMMANDS: help, status, clear, nodes",
     status: "SYSTEM STATUS: STABLE // MINOR CORRUPTION DETECTED",
     nodes: "ACTIVE NODES: AUMC-CSN / ARCHIVE / RECRUITMENT / LAYERS",
+
+    // ARG LAYER LEAK (INTENTIONAL ANOMALY)
+    12192020: "RECRUITMENT NODE ACCESS KEY DETECTED",
 };
+
+/* =========================
+   TERMINAL INPUT HANDLER
+========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("terminalInput");
@@ -128,6 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const output = document.createElement("div");
         output.className = "terminal";
 
+        // SECRET RECRUITMENT OVERRIDE (ARG CORE MECHANIC)
+        if (value === "46696565") {
+            window.location.href = "your_own_utterance.html";
+            return;
+        }
+
         output.innerText =
             terminalCommands[value] ||
             "[UNKNOWN COMMAND] TYPE 'help' FOR LIST OF COMMANDS";
@@ -135,3 +145,24 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.appendChild(output);
     });
 });
+
+/* =========================
+   HIDDEN ARG GLITCH LAYER (INDEX FLAG SYSTEM)
+========================= */
+
+function initializeHiddenGlitchLayer() {
+    const glitchPayload = document.createElement("div");
+
+    glitchPayload.style.opacity = "0.04";
+    glitchPayload.style.position = "fixed";
+    glitchPayload.style.bottom = "2px";
+    glitchPayload.style.left = "6px";
+    glitchPayload.style.fontSize = "7px";
+    glitchPayload.style.pointerEvents = "none";
+    glitchPayload.style.color = "#ffffff";
+
+    glitchPayload.innerText =
+        "S____G____ has hacked the [REDACTED] Page By putting the Code [REDACTED] In Base-16 and the only letter in the code in alphabetical order";
+
+    document.body.appendChild(glitchPayload);
+}

@@ -1,0 +1,176 @@
+<section class="panel">
+    <h2>EMERGENCY BULLETINS</h2>
+
+    <div class="bulletin">
+        <span class="time">14:22</span>
+        CIVILIAN LOCKDOWN REMAINS IN EFFECT ACROSS ZONES 01-04.
+    </div>
+
+    <div class="bulletin">
+        <span class="time">14:28</span>
+        REPORT ANY AUDITORY ANOMALIES MIMICKING FAMILIAR VOICES TO LOCAL SECTOR COMMAND.
+    </div>
+
+    <div class="bulletin warning">
+        <span class="time">14:31</span>
+        [REVISED] PRIOR GUIDANCE REGARDING PHYSICAL CONTACT IS VOID.
+        REFER TO CIVILIAN GUIDANCE DOCUMENT 41-B.
+    </div>
+
+    <div class="bulletin">
+        <span class="time">14:37</span>
+        BITE VICTIMS ARE NO LONGER CLASSIFIED AS SURVIVORS.
+    </div>
+
+    <div class="bulletin">
+        <span class="time">14:41</span>
+        SUBJECTS MAY NOT REMAIN CONSISTENT ACROSS OBSERVERS.
+    </div>
+
+    <div class="bulletin">
+        <span class="time">14:44</span>
+        AVOID PROLONGED ISOLATION DURING ACTIVE CONTAINMENT EVENTS.
+    </div>
+
+    <div class="bulletin secret">
+        NO YOU ARE NOT ALLOWED IN
+    </div>
+</section>
+
+<section class="grid">
+
+    <div class="panel">
+        <h2>ACTIVE PSA</h2>
+
+        <p>
+            If an individual requests entry during nighttime hours,
+            avoid unnecessary acknowledgement.
+        </p>
+
+        <p>
+            Observe:
+        </p>
+
+        <ul>
+            <li>Voice</li>
+            <li>Breathing</li>
+            <li>Posture</li>
+            <li>Shadow</li>
+        </ul>
+
+        <p>
+            Visual confirmation alone is considered unreliable.
+        </p>
+    </div>
+
+    <div class="panel">
+        <h2>KNOWN INFECTION PHASES</h2>
+
+        <ul>
+            <li>Phase I - Panic</li>
+            <li>Phase II - Ache</li>
+            <li>Phase III - Expedited Convalescence</li>
+            <li>Phase IV - Exhaustion</li>
+            <li>Phase V - Viral</li>
+        </ul>
+
+        <p class="redacted">
+            Additional biological information has been removed.
+        </p>
+    </div>
+
+</section>
+
+<section class="grid">
+
+    <div class="panel">
+        <h2>ACTIVE CONTAINMENT ZONES</h2>
+
+        <p>ZONE 01 - VARDØ - LOST</p>
+        <p>ZONE 02 - [REDACTED]</p>
+        <p>ZONE 03 - OBSERVATION</p>
+        <p>ZONE 04 - LOCKDOWN</p>
+        <p>ZONE 05 - [REDACTED]</p>
+    </div>
+
+    <div class="panel">
+        <h2>PERSPECTIVE DATABASE</h2>
+
+        <p>PERSPECTIVE 01 - RECOVERED</p>
+        <p>PERSPECTIVE 02 - INCOMPLETE</p>
+        <p>PERSPECTIVE 03 - CORRUPTED</p>
+        <p>PERSPECTIVE 04 - CLASSIFIED</p>
+    </div>
+
+</section>
+
+<section class="grid">
+
+    <div class="panel">
+        <h2>RESEARCH NOTES</h2>
+
+        <p>
+            Correlation between isolation,
+            paranoia,
+            and contact events remains under investigation.
+        </p>
+
+        <p>
+            Observer discrepancies continue to increase.
+        </p>
+
+        <p class="tiny">
+            426c
+        </p>
+    </div>
+
+    <div class="panel">
+        <h2>PERSONNEL STATUS</h2>
+
+        <p>ACTIVE AGENTS: 27</p>
+        <p>MISSING: 94</p>
+        <p>COMPROMISED: [REDACTED]</p>
+        <p>CONTAINED: [REDACTED]</p>
+
+        <p class="tiny">
+            7574
+        </p>
+    </div>
+
+</section>
+
+<section class="panel">
+
+    <h2>NETWORK STATISTICS</h2>
+
+    <p>ACTIVE INCIDENTS: 14,923</p>
+    <p>CITIZENS EVACUATED: 203,551</p>
+    <p>RECOVERED RECORDINGS: 41</p>
+    <p>SUCCESSFUL CONTAINMENTS: 7</p>
+
+</section>
+
+<footer>
+
+    <p>
+        Anti-Undead Military Campaign
+        Citizen Safety Network
+    </p>
+
+    <p class="tiny">
+        7361
+    </p>
+
+    <p class="tiny">
+        7567
+    </p>
+
+    <p class="tiny">
+        6572
+    </p>
+
+    <p class="hidden-message">
+        Every minute you will hear ONE heartbeat.
+    </p>
+
+</footer>

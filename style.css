@@ -200,7 +200,7 @@ a:hover {
 }
 
 /* =========================
-   LIST SYSTEM (YOUR INDEX STYLE)
+   LIST SYSTEM
 ========================= */
 
 ul {
@@ -234,6 +234,13 @@ li:hover {
     filter: blur(0);
 }
 
+/* EXTRA ARG VARIANT (more unstable hidden nodes) */
+.hidden.active {
+    opacity: 1;
+    filter: blur(0);
+    color: #ff4d4d;
+}
+
 /* =========================
    TERMINAL STYLE BLOCK
 ========================= */
@@ -258,7 +265,7 @@ li:hover {
 }
 
 /* =========================
-   SCROLLBAR (OPTIONAL CLEANUP)
+   SCROLLBAR
 ========================= */
 
 ::-webkit-scrollbar {
@@ -271,4 +278,53 @@ li:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #ff2a2a;
+}
+
+/* =========================
+   ARG GLOBAL ENDING LINE SUPPORT
+   (Injected via JS or manual footer)
+========================= */
+
+.global-ending {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px dashed #2a2a2a;
+    font-family: "Courier New", monospace;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.global-ending .fine {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 6px #ff0000;
+}
+
+/* =========================
+   HOMEPAGE HIDDEN LAYER SUPPORT
+   (EXTREMELY LOW VISIBILITY ARG GLITCH)
+========================= */
+
+.arg-glitch-hidden {
+    position: absolute;
+    opacity: 0.03;
+    font-size: 10px;
+    color: #ffffff;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* =========================
+   RECRUITMENT SECRET FEELING
+========================= */
+
+.recruitment-anomaly {
+    animation: recruitmentPulse 6s infinite;
+    border-color: rgba(255,0,0,0.15);
+}
+
+@keyframes recruitmentPulse {
+    0% { box-shadow: 0 0 0 rgba(255,0,0,0); }
+    50% { box-shadow: 0 0 20px rgba(255,0,0,0.08); }
+    100% { box-shadow: 0 0 0 rgba(255,0,0,0); }
 }

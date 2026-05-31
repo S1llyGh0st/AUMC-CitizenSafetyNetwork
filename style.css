@@ -328,3 +328,129 @@ li:hover {
     50% { box-shadow: 0 0 20px rgba(255,0,0,0.08); }
     100% { box-shadow: 0 0 0 rgba(255,0,0,0); }
 }
+/* =========================
+   GLOBAL GREEN SHIFT (CORE TONE OVERRIDE)
+========================= */
+
+body {
+    color: #00ff66;
+}
+
+/* Make panels feel more “terminal green world” */
+.panel {
+    box-shadow: 0 0 25px rgba(0, 255, 102, 0.08);
+    border: 1px solid rgba(0, 255, 102, 0.15);
+}
+
+/* WARNING stays slightly unstable but green-tinted */
+.warning {
+    border: 1px solid rgba(0, 255, 102, 0.4);
+    background: rgba(0, 255, 102, 0.06);
+    color: #66ff99;
+}
+
+/* PSA becomes corrupted green-yellow */
+.psa {
+    border-left: 4px solid #00ff66;
+    background: rgba(0, 255, 102, 0.04);
+    color: #aaffcc;
+}
+
+/* Terminal becomes dominant system color */
+.terminal {
+    background: #000;
+    color: #00ff66;
+    border: 1px solid #00ff66;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.25);
+}
+
+/* Links shift into system green */
+a {
+    color: #00ff99;
+}
+
+a:hover {
+    color: #00ff66;
+    text-shadow: 0 0 6px #00ff66;
+}
+
+/* =========================
+   ENHANCED REDACTION SYSTEM (ARG EXPANSION)
+========================= */
+
+/* generic redaction already exists — we extend it */
+
+.redacted {
+    color: transparent;
+    background: #000;
+}
+
+/* stronger system overwrite for key leaks */
+.redacted::after {
+    content: "[REDACTED]";
+    color: #00ff66; /* changed from red → system-aligned corruption */
+}
+
+/* NEW: important hidden classification layer */
+.auto-redact {
+    background: #000;
+    color: transparent;
+    position: relative;
+}
+
+.auto-redact::after {
+    content: "[REDACTED]";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #00ff66;
+}
+
+/* =========================
+   PERSPECTIVE NAME OBFUSCATION STYLE
+========================= */
+
+.perspective-name {
+    color: transparent;
+    background: black;
+    padding: 0 4px;
+    position: relative;
+}
+
+.perspective-name::after {
+    content: "[REDACTED]";
+    color: #00ff66;
+    position: absolute;
+    left: 0;
+}
+
+/* =========================
+   DATE CORRUPTION VISUAL LAYER
+========================= */
+
+.date {
+    color: transparent;
+    background: black;
+    position: relative;
+}
+
+.date::after {
+    content: "■■■■■■■■";
+    color: #00ff66;
+    position: absolute;
+    left: 0;
+}
+
+/* =========================
+   GLOBAL SYSTEM “BREATHING” EFFECT (SUBTLE)
+========================= */
+
+body {
+    animation: systemBreath 6s infinite;
+}
+
+@keyframes systemBreath {
+    0% { filter: brightness(0.95); }
+    50% { filter: brightness(1.05); }
+    100% { filter: brightness(0.95); }
+}

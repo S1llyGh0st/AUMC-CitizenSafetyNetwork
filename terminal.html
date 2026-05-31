@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AUMC-CSN // TERMINAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+
+    <div class="panel terminal">
+
+        <h1 class="glitch" data-text="SYSTEM TERMINAL">
+            SYSTEM TERMINAL
+        </h1>
+
+        <p>
+            NODE ACCESS GRANTED // LIMITED PRIVILEGES ENABLED
+        </p>
+
+        <br>
+
+        <p>
+            TYPE COMMAND BELOW:
+        </p>
+
+        <input 
+            id="terminalInput"
+            type="text"
+            placeholder="enter command... (help, status, nodes)"
+            style="
+                width: 100%;
+                padding: 10px;
+                margin-top: 10px;
+                background: black;
+                color: #00ff88;
+                border: 1px solid #00ff88;
+                font-family: monospace;
+                outline: none;
+            "
+        />
+
+        <br><br>
+
+        <div class="psa">
+            SYSTEM NOTE: Unauthorized commands may trigger containment protocols.
+        </div>
+
+    </div>
+
+    <div class="panel">
+        <h2>ACTIVE LOG FEED</h2>
+
+        <div class="terminal">
+            [BOOT] INITIALIZING NODE LINK...
+        </div>
+
+        <div class="terminal">
+            [SYNC] CONNECTED TO AUMC-CSN ARCHIVE NETWORK
+        </div>
+
+        <div class="terminal">
+            [WARNING] MEMORY SEGMENTS CORRUPTED IN SECTOR 3
+        </div>
+
+        <div class="terminal">
+            [INFO] TYPE "help" FOR AVAILABLE COMMANDS
+        </div>
+    </div>
+
+</body>
+</html>

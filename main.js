@@ -1,68 +1,69 @@
 /**
- * AUMC-CSN MASTER ROUTING AND COMMAND ENGINE (main.js)
+ * AUMC-CSN EMERGENCY NETWORK: INTERACTION LOGIC COMPILER (main.js)
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    setupAUMCConsole();
+    initializeUnifiedTerminal();
 });
 
-function setupAUMCConsole() {
-    const overrideInput = document.getElementById("terminal-override-input");
-    const overrideSubmit = document.getElementById("terminal-override-submit");
+function initializeUnifiedTerminal() {
+    const inputNode = document.getElementById("terminal-override-input");
+    const submitNode = document.getElementById("terminal-override-submit");
     
-    if (!overrideInput || !overrideSubmit) return;
+    if (!inputNode || !submitNode) return;
 
-    overrideInput.addEventListener("keypress", function(e) {
+    inputNode.addEventListener("keypress", function(e) {
         if (e.key === "Enter") {
-            evalAUMCCommand(overrideInput.value.trim());
+            processAUMCCredential(inputNode.value.trim());
         }
     });
 
-    overrideSubmit.addEventListener("click", function() {
-        evalAUMCCommand(overrideInput.value.trim());
+    submitNode.addEventListener("click", function() {
+        processAUMCCredential(inputNode.value.trim());
     });
 }
 
-function evalAUMCCommand(rawInput) {
-    const filteredKey = rawInput.replace(/\s+/g, "");
+function processAUMCCredential(rawInput) {
+    const scrubbedKey = rawInput.replace(/\s+/g, "");
 
-    // TARGET REDIRECT VECTOR
-    if (filteredKey === "46696565") {
+    // ROUTE 01: RESTRICTED DOSSIER OVERRIDE
+    if (scrubbedKey === "46696565") {
         window.location.href = "YOUROWNUTTERANCE.html";
         return;
     }
 
-    // MULTI-LAYER DOCUMENT INJECTION VECTOR
-    if (filteredKey === "12192020") {
-        revealSecureLayerData();
+    // ROUTE 02: DYNAMIC PERSAL COMPRESSION LAYER OVERLAY
+    if (scrubbedKey === "12192020") {
+        revealDynamicMatrixLayers();
         return;
     }
 
-    setConsoleFeedback("AUMC EXCEPTION: ACCESS KEYS REFUSED BY HIGH COMMAND SECURITY ROUTINE.");
+    renderTerminalLog("AUMC EXCEPTION: ACCESS CODES REJECTED. TRANSACTION FORBIDDEN.");
 }
 
-function revealSecureLayerData() {
-    const targetOutput = document.getElementById("aumc-layer-manifest");
-    if (!targetOutput) return;
+function revealDynamicMatrixLayers() {
+    const layerTarget = document.getElementById("aumc-layer-manifest");
+    if (!layerTarget) return;
 
-    targetOutput.innerHTML = `
-        <div class="bulletin-box glitch-screen" style="margin-top:25px;">
-            <h3>[AUMC MASTER ARCHIVE DATA DECRYPTED]</h3>
-            <p><strong>LAYER 01 LOGISTICS:</strong> Fortress Location Variant // Blight Affected Area // Monitor: agent Rip_Eminemthegoat</p>
-            <p><strong>LAYER 02 SYMPTOM:</strong> Ari Perspective // High-Onset Aphasia // "The fourth shadow does not belong to anyone."</p>
-            <p><strong>LAYER 03 METRIC:</strong> Death of Blutsaugers Friend // Anchor Name: Christian Wolff // Key: Anton Felix Becvarovski</p>
-            <p><strong>LAYER 04 VECTOR:</strong> Vascular Hemorrhage Active // Morse Sequence Verified // "Reporting for duty."</p>
-            <p><strong>LAYER 05 ROUTING:</strong> Clearance Code Intercept Hidden In Layer 02 Frame Feeds.</p>
-            <p><strong>LAYER 06 SCHISM:</strong> Rationalism And Experience Matrix // Do Not Pursue Paths Single-Mindedly.</p>
-            <p><strong>LAYER 07 ID:</strong> Corp ID Equals Finite Order Topological Manifold Exotic Differentiable Space Space Parameter Invariant (Milnor 1956).</p>
+    layerTarget.innerHTML = `
+        <div class="vhs-screen" style="border: 1px solid #00ff41; padding: 20px; margin-top: 30px; background: rgba(0,15,0,0.7); box-shadow: 0 0 15px rgba(0,255,65,0.2);">
+            <h3 style="margin-top:0; color:#ff0000;">[AUMC EXCLUSION FILE INTERCEPT VERIFIED]</h3>
+            <hr style="border-color:#00ff41; opacity:0.3;">
+            <p><strong>LAYER 01:</strong> Fortress [Vardøhus Fortress Core Execution Logs] // agent Rip_Eminemthegoat</p>
+            <p><strong>LAYER 02:</strong> Ari Perspective [Aphasia Pathology Confirmed] // Map Index: base-16 calculation track.</p>
+            <p><strong>LAYER 03:</strong> Chrono Vector [Death of Blutsaugers friend // Christian Wolff // Anton Felix Becvarovski]</p>
+            <p><strong>LAYER 04:</strong> Binary Matrix [-. --- - .... .. -. --. / .- / -... ..- .-.. .-.. . - / - --- / - .... . / .... . .- -.. / -.-. .- -. - / ..-. .. -..-]</p>
+            <p><strong>LAYER 05:</strong> Cross Check Route [Reference Layer 02 footage parameters]</p>
+            <p><strong>LAYER 06:</strong> Epistemology Vector [Rationalism vs experience balance loop]</p>
+            <p><strong>LAYER 07:</strong> Group Topology Invariant [Milnor compact orthogonal group space calculation order]</p>
         </div>
     `;
-    setConsoleFeedback("SUCCESS: ALL EXCLUSION RECORDS PARSED.");
+    renderTerminalLog("AUMC INTEGRITY MATRIX INJECTED.");
 }
 
-function setConsoleFeedback(msg) {
-    const feedbackField = document.getElementById("terminal-feedback-log");
-    if (feedbackField) {
-        feedbackField.innerText = msg;
+function renderTerminalLog(textPayload) {
+    const feedbackBox = document.getElementById("terminal-feedback-log");
+    if (feedbackBox) {
+        feedbackBox.innerText = textPayload;
     }
 }

@@ -1,28 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUMC CSN - PUBLIC SAFETY NETWORK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<div class="vhs-screen">
-    <header><h1>ANTI UNDEAD MILITARY CAMPAIGN // CITIZEN SAFETY NETWORK</h1><p>“Observation is a form of protection.”</p></header>
-    <nav class="nav"><a href="index.html">Home</a><a href="guidance.html">Guidance</a><a href="archive.html">Archive</a><a href="research.html">Research</a><a href="perspective.html">Perspectives</a><a href="recruitment.html">Recruitment</a><a href="terminal.html">Terminal</a><a href="restricted.html">Restricted</a></nav>
-    <section class="panel">
-        <h2>Emergency Bulletins</h2>
-        <p>Civilian lockdown remains in effect across zones 01-04. 14:22</p>
-        <p>Report any auditory anomalies mimicking familiar voices immediately. Contact [REDACTED] at sector command.</p>
-        <p>[REVISED] Prior guidance regarding physical contact is void. See Civilian Guidance. Supersedes bulletin dated --:--</p>
-        <h3 class="glitch">NO YOU ARE NOT PERMITTED TO ENTER</h3>
-    </section>
-    <section class="panel">
-        <h3>Active PSA</h3>
-        <p>Compassion may constitute permission.</p>
-    </section>
-    <section class="panel">
-        <h3>Recent Containment</h3>
-        <ul><li>Subject 402 — Terminated</li><li>Subject 403 — Isolated</li><li>Subject 405 — Relocated to Layer 02</li></ul>
-    </section>
-    <p>You hear fewer breaths than bodies. The breathing is inconsistent.</p>
-    <div id="anomaly" style="opacity:0.08;">[SYSTEM ANOMALY — LOG REF: 0419] S____G____ has hacked the [REDACTED] Page By putting the Code [REDACTED] In Base-16 and the only letter in the code in alphabetical order</div>
-    <footer>AUMC SECURE NETWORK v2.4.1 | The house remembers.</footer>
-</div>
-</body>
-</html>
+
+    <!-- UNIFIED TOP NAVIGATION UI -->
+    <nav class="aumc-global-nav">
+        <div class="aumc-nav-title">AUMC_CORE_SYS://v2.41</div>
+        <div class="aumc-nav-links">
+            <a href="index.html" class="active">HOME</a>
+            <a href="recruitment.html">PORTAL</a>
+            <a href="perspective.html">PERSPECTIVES</a>
+            <a href="archive.html">ARCHIVE</a>
+            <a href="research.html">RESEARCH</a>
+            <a href="guidance.html">GUIDANCE</a>
+        </div>
+    </nav>
+
+    <!-- HIDDEN ARCHIVAL METADATA METRIC -->
+    <!-- HTML COMMENT DECAY KEY: 1725 | 295 | "Perspective determines structure." -->
+    <!-- WARNING: You were not supposed to receive this version. -->
+
+    <main class="vhs-screen">
+        
+        <header style="border: 1px solid var(--terminal-green); padding: 25px; margin-bottom: 40px; background: rgba(0,20,0,0.3);" class="pulse-indicator">
+            <h1 style="margin: 0; font-size: 1.8em; letter-spacing: 2px;">CITIZEN SAFETY NETWORK [CSN]</h1>
+            <p style="margin: 5px 0 0 0; font-size: 0.9em; opacity: 0.8;">OFFICIAL BROADCAST ENGINE // ANTI-UNDEAD MILITARY CAMPAIGN</p>
+            <div style="font-size:0.75em; color:#ff0000; margin-top:10px; font-weight:bold;">
+                ALERT: CURRENT ARCHIVE RESTORATION STATUS: 74.2% // PREVIOUSLY ISSUED GUIDANCE IS INCOMPLETE.
+            </div>
+        </header>
+
+        <!-- INTRO LORE ANCHOR BLOCK -->
+        <section style="margin-bottom: 40px;">
+            <p>Welcome to the central gateway of the <strong>Anti-Undead Military Campaign (AUMC)</strong>. This platform provides real-time emergency indices, verified counter-vector operations, and tactical civilian deployment directives. Ensure your local area receiving hardware remains synchronized with this node.</p>
+            <div style="background: rgba(0,30,0,0.4); padding: 15px; border-left: 3px solid var(--terminal-green); font-style: italic; font-size: 0.95em;">
+                "No, you are not allowed in." - Standard Behavioral Vector Wall Requirement. <span class="clickable-anomaly">[Verify Lock Status]</span>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             NEW DENSE CONTAMINATED DOWNWARD EXTENSION SECTIONS
+             ========================================================================== -->
+
+        <!-- SECTION 1: VAGUE THREAT PROTOCOLS -->
+        <section style="margin-top: 60px; border-top: 1px dashed rgba(0,255,65,0.4); padding-top: 30px;">
+            <h2 style="font-size: 1.3em; letter-spacing: 1px; color: var(--terminal-green);">I. SYSTEMIC VECTOR CHARACTERIZATION (UNCLASSIFIED PROV.)</h2>
+            <p>Operational personnel must avoid colloquial biological taxonomy ("vampires", "ghouls"). The current threat vector is managed under high-priority classification strings as defined below:</p>
+            
+            <ul>
+                <li><strong>Behavioral Anomalies:</strong> Subjects exhibit erratic social compliance models mixed with unexpected baseline domestic integration patterns. Some infected remain highly socially functional.</li>
+                <li><strong>Hostile Humanoid Entities:</strong> Morphological tracking remains unstable. <span class="glitch-text">Do not rely on visual continuity.</span></li>
+                <li><strong>Acoustic Mimics:</strong> The entity uses conversational echoes. If you hear unexpected vocalization patterns from acquaintances: <em>Do not trust excessive friendliness.</em></li>
+                <li><strong>Threshold Entities:</strong> Entry conditions function on specific psychological boundaries. Remember: <em>Any acknowledgment may be interpreted as permission.</em></li>
+            </ul>
+            <p style="font-size: 0.85em; opacity: 0.7;"><em>Discrepancy Note 09-B:</em> Household counting methods are no longer reliable. The breathing is inconsistent. You hear fewer breaths than bodies.</p>
+        </section>
+
+        <!-- SECTION 2: VAGUE COUNTERMEASURES & CONTRADICTIONS -->
+        <section style="margin-top: 50px; border-top: 1px dashed rgba(0,255,65,0.4); padding-top: 30px;">
+            <h2 style="font-size: 1.3em; letter-spacing: 1px;">II. CIVILIAN PROTECTIVE COUNTERMEASURES</h2>
+            <p>Review the following public directives carefully. If a contradiction is noted relative to localized printouts, follow the most recent system transmission refresh.</p>
+
+            <div class="archive-accordion">
+                <div class="accordion-header"><span>STRATEGY 12: ISOLATION MITIGATION MATRIX</span> <span class="acc-indicator">[+]</span></div>
+                <div class="accordion-content">
+                    <p><strong>Initial Guidance:</strong> Avoid isolation when possible. Group consolidation reduces individual anxiety vulnerability factors.</p>
+                    <p style="color: #ff0000;"><strong>Revised Guidance (10:26 PM Log):</strong> Isolation is now considered a risk factor, yet population expansion increases vectors. If unexpected movement occurs: <em>The subject may already be inside.</em></p>
+                </div>
+            </div>
+
+            <div class="archive-accordion">
+                <div class="accordion-header"><span>STRATEGY 44: VERBAL ACKNOWLEDGMENT THRESHOLD</span> <span class="acc-indicator">[+]</span></div>
+                <div class="accordion-content">
+                    <p>Minimize verbal response paths when tracking unknown individuals at physical barriers. Even negative refutations can establish an interactive gate bridge.</p>
+                    <p><em>Motif Reminder:</em> <span class="redacted">The door was already unlocked.</span> Do not respond to requests for shelter if the scent indicates reduction.</p>
+                </div>
+            </div>
+
+            <div class="archive-accordion">
+                <div class="accordion-header"><span>STRATEGY 89: RESPIRATORY LOGGING CHECKS</span> <span class="acc-indicator">[+]</span></div>
+                <div class="accordion-content">
+                    <p>Monitor household member counts continuously via active audio checking. Record all breathing anomalies. If you detect one heartbeat per minute or inconsistent pacing, verify skin surface marks with blurred bandaid applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: RECOVERED PUBLIC TIMELINE -->
+        <section style="margin-top: 50px; border-top: 1px dashed rgba(0,255,65,0.4); padding-top: 30px;">
+            <h2 style="font-size: 1.3em; letter-spacing: 1px;">III. INCIDENT PROGRESSION OVERVIEW</h2>
+            <p>Chronological indexing metrics recovered from central storage blocks. Note the operational breakdown markers:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em; margin-top: 15px;">
+                tr style="border-bottom: 1px solid var(--terminal-green);">
+                    <th style="text-align: left; padding: 8px;">TIMESTAMP</th>
+                    <th style="text-align: left; padding: 8px;">SECTOR RECORDED ANOMALY</th>
+                    <th style="text-align: left; padding: 8px;">STATUS LOG</th>
+                </tr>
+                <tr style="border-bottom: 1px dashed rgba(0,255,65,0.2);">
+                    <td style="padding: 8px;">[04/19] --:--</td>
+                    <td style="padding: 8px;">Initial sector communication drop. Disappearances tracking at 110 cases.</td>
+                    <td style="padding: 8px; color: #ff0000;">[FILE CORRUPTED]</td>
+                </tr>
+                <tr style="border-bottom: 1px dashed rgba(0,255,65,0.2);">
+                    <td style="padding: 8px;">[07/25] 22:26</td>
+                    <td style="padding: 8px;">Sheltering instructions deployed across households. Täuscher metrics spotted.</td>
+                    <td style="padding: 8px;">OUTDATED INSTRUCTION</td>
+                </tr>
+                <tr style="border-bottom: 1px dashed rgba(0,255,65,0.2);">
+                    <td style="padding: 8px;">[11/10] 03:14</td>
+                    <td style="padding: 8px;">Quarantine failures confirmed. Revised bite analysis indicates sleep collapse.</td>
+                    <td style="padding: 8px; color: #ff0000;">GUIDANCE RETRACTED</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px;">[--/--] --:--</td>
+                    <td style="padding: 8px;">The house remembers. Faint green eye imagery noted on internal channels.</td>
+                    <td style="padding: 8px; font-weight: bold;">FUTURE REFERENCE</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- SECTION 4: KNOWN VECTOR SIGNS -->
+        <section style="margin-top: 50px; border-top: 1px dashed rgba(0,255,65,0.4); padding-top: 30px; padding-bottom: 40px;">
+            <h2 style="font-size: 1.3em; letter-spacing: 1px;">IV. KNOWN COMPLIANCE SIGNS (DIAGNOSTIC MATRIX)</h2>
+            <p>If a household contact exhibits two or more of these parameters, treat behavioral responses as unverified:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9em; margin-top: 15px;">
+                <div style="background: rgba(0,10,0,0.5); padding: 15px; border: 1px solid rgba(0,255,65,0.2);">
+                    <strong>A. SENSORY & PHYSIOLOGICAL</strong><br>
+                    • Chronic exhaustion / sleep collapse pattern.<br>
+                    • Reddish vision or eye fluid weeping anomalies.<br>
+                    • Delayed physical response times (1-2 frames lag).<br>
+                    • Constant fixation on physical threshold invitations.

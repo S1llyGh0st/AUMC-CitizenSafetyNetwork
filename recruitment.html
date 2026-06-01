@@ -11,15 +11,18 @@
 
 <body>
 
-    <div class="panel">
+    <!-- =========================
+         BOOT SEQUENCE / ENTRY NODE
+    ========================== -->
+    <div class="panel intro-node">
 
         <h1 class="glitch" data-text="RECRUITMENT PROTOCOL ACTIVE">
             RECRUITMENT PROTOCOL ACTIVE
         </h1>
 
         <div class="warning">
-            ACCESSING THIS NODE MAY RESULT IN PERMANENT SYSTEM BINDING.
-            ALL INPUTS ARE MONITORED BY AUMC OVERSIGHT LAYER.
+            ACCESSING THIS NODE MAY RESULT IN PERMANENT SYSTEM BINDING.<br>
+            ALL INPUTS ARE LOGGED UNDER AUMC OVERSIGHT LAYER.
         </div>
 
         <p>
@@ -27,13 +30,16 @@
             <span class="infected">AUMC-CSN OPERATIONAL GRID</span>.
         </p>
 
+        <p class="terminal">
+            STATUS: LINK ESTABLISHED // NODE STABLE // OBSERVER DETECTED
+        </p>
+
     </div>
 
     <!-- =========================
-         APPLICATION STATUS
+         APPLICATION STATE NODE
     ========================== -->
-
-    <div class="panel">
+    <div class="panel state-node">
 
         <h2>APPLICATION STATUS</h2>
 
@@ -49,39 +55,46 @@
 
         <p>
             Psychological Stability Index:
-            <span class="redacted" data-real="UNSTABLE (REVIEW REQUIRED)">[REDACTED]</span>
+            <span class="redacted" data-real="UNSTABLE // OBSERVATION REQUIRED">[REDACTED]</span>
+        </p>
+
+        <p class="terminal infected">
+            NOTE: SUBJECT RESPONSE PATTERNS MAY NOT MATCH PREVIOUS CANDIDATES
         </p>
 
     </div>
 
     <!-- =========================
-         FACTION SELECTION (LORE HOOK)
+         ALIGNMENT / FACTION BRANCH
     ========================== -->
-
-    <div class="panel">
+    <div class="panel branch-node">
 
         <h2>ALIGNMENT SELECTION</h2>
 
+        <p class="terminal">
+            Select a node to continue evaluation path.
+        </p>
+
         <ul>
 
-            <li>
+            <li class="choice" data-path="alpha">
                 NODE SECTOR ALPHA //
                 <span class="infected">STABILITY & CONTROL</span>
             </li>
 
-            <li>
+            <li class="choice" data-path="beta">
                 NODE SECTOR BETA //
                 <span class="redacted" data-real="Containment & Suppression">[REDACTED]</span>
             </li>
 
-            <li>
+            <li class="choice" data-path="gamma">
                 NODE SECTOR GAMMA //
                 <span class="redacted" data-real="Unknown / Unregistered Systems">[REDACTED]</span>
             </li>
 
-            <li class="hidden">
+            <li class="choice hidden" data-path="omega">
                 NODE SECTOR Ω //
-                CLASSIFICATION LOST (click to attempt recovery)
+                CLASSIFICATION LOST — CLICK TO ATTEMPT RECOVERY
             </li>
 
         </ul>
@@ -89,53 +102,86 @@
     </div>
 
     <!-- =========================
-         SCREENING QUESTIONS
+         SCREENING / RESPONSE NODE
     ========================== -->
-
-    <div class="panel">
+    <div class="panel screening-node">
 
         <h2>SCREENING PROTOCOL</h2>
 
         <p class="terminal">
-            Q1: Do you acknowledge system authority?  
-            <span class="redacted" data-real="ANSWER: YES (MANDATORY)">[REDACTED]</span>
+            Q1: Do you acknowledge system authority?<br>
+            <span class="redacted" data-real="YES (MANDATORY ACCEPTANCE RECORDED)">[REDACTED]</span>
         </p>
 
         <p class="terminal">
-            Q2: Have you experienced memory inconsistencies?  
-            <span class="redacted" data-real="MULTIPLE INSTANCES DETECTED">[REDACTED]</span>
+            Q2: Have you experienced memory inconsistencies?<br>
+            <span class="redacted" data-real="MULTIPLE INSTANCES DETECTED ACROSS SUBJECT HISTORY">[REDACTED]</span>
         </p>
 
         <p class="terminal infected">
-            Q3: If you see this message, do not proceed.
+            Q3: If you are reading this line, stop reading.
+        </p>
+
+        <p class="terminal glitch-text">
+            SYSTEM NOTICE: RESPONSE MAY BE AUTO-FILLED IN FUTURE ITERATIONS
         </p>
 
     </div>
 
     <!-- =========================
-         FINAL NOTICE
+         RECURSIVE LEAK / SYSTEM FAILURE HINT
     ========================== -->
+    <div class="panel leak-node">
 
-    <div class="panel psa">
-        FINAL NOTICE:  
-        Recruitment does not end. It only changes state.
+        <h2>SYSTEM NOTE</h2>
+
+        <p class="terminal">
+            INPUT RESPONSE LAYER MAY OVERRIDE USER INTENT UNDER CONDITION 46696565
+        </p>
+
+        <p class="terminal infected">
+            TRACE CORRUPTION DETECTED IN LOWER NODES
+        </p>
+
     </div>
 
     <!-- =========================
-         ARG OVERRIDE BEHAVIOR NOTICE (SYSTEM LEAK)
+         FINAL NODE (EPISODE HOOK)
     ========================== -->
+    <div class="panel end-node">
 
-    <div class="panel psa">
-        SYSTEM NOTE: INPUT RESPONSE LAYER MAY OVERRIDE USER INTENT UNDER CONDITION 46696565
+        <h2>FINAL NOTICE</h2>
+
+        <p class="psa">
+            Recruitment does not end. It only changes state.
+        </p>
+
+        <p class="psa infected">
+            You are not being recruited.<br>
+            You are being integrated.
+        </p>
+
     </div>
 
     <!-- =========================
-         GLOBAL ARG ENDING LINE (REQUIRED)
+         Ω REVEAL SEED (EPISODE HOOK)
     ========================== -->
+    <div class="panel omega-node hidden">
 
-    <div class="panel psa">
-        You Will Not End Up like [REDACTED]...
-        You Will Be <span style="color:#ff0000;">Fine</span>
+        <h2>Ω NODE RESTORED</h2>
+
+        <p class="terminal infected">
+            THIS SECTION SHOULD NOT BE VISIBLE.
+        </p>
+
+        <p>
+            If you are seeing this, your instance has diverged from baseline recruitment logic.
+        </p>
+
+        <p class="psa">
+            Next episode state: UNDEFINED
+        </p>
+
     </div>
 
 </body>

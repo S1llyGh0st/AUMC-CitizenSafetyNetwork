@@ -1,11 +1,12 @@
 :root {
-    --bright: #00FF41; /* Classic Matrix Green */
+    --bright: #00FF41;
     --warning: #FF0000;
+    --bg: #020202;
     --vhs-line: rgba(255, 255, 255, 0.03);
 }
 
 body {
-    background-color: #020202;
+    background-color: var(--bg);
     color: var(--bright);
     font-family: "Courier New", Courier, monospace;
     margin: 0;
@@ -14,7 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* CRT INTERLACE LAYER */
+/* CRT Effects */
 body::after {
     content: "";
     position: fixed;
@@ -23,41 +24,34 @@ body::after {
     z-index: 9999;
     background: repeating-linear-gradient(0deg, var(--vhs-line) 0px, var(--vhs-line) 1px, rgba(0,0,0,0.6) 1px, rgba(0,0,0,0.6) 3px);
     animation: vhs-flicker 0.15s infinite;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
-/* TUBE GLOW */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle, rgba(0, 255, 65, 0.05) 0%, rgba(0, 0, 0, 0.7) 100%);
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
     z-index: 9998;
     pointer-events: none;
 }
 
-/* TEXT GLOW */
 .vhs-screen {
     position: relative;
     z-index: 10;
-    text-shadow: 0 0 2px rgba(0, 255, 65, 1), 0 0 10px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.4);
-    filter: contrast(1.4) brightness(1.2);
+    text-shadow: 0 0 2px rgba(0, 255, 65, 0.8), 0 0 10px rgba(0, 255, 65, 0.4);
+    filter: contrast(1.2) brightness(1.1);
 }
 
-.glitch-screen {
-    color: var(--warning) !important;
-    text-shadow: 0 0 2px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 0, 0, 0.8);
-    animation: jitter 0.08s infinite;
-}
-
-@keyframes vhs-flicker { 0% { opacity: 0.7; } 50% { opacity: 0.78; } 100% { opacity: 0.72; } }
-@keyframes jitter { 0% { transform: translate(0,0); } 33% { transform: translate(-2px, 1px); } 66% { transform: translate(2px, -1px); } 100% { transform: translate(0,0); } }
-
-/* AUMC Panels */
 .panel {
-    background: rgba(0, 26, 0, 0.3);
+    background: rgba(0, 26, 0, 0.4);
     border: 1px solid var(--bright);
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
 }
+
+.glitch-text { color: var(--warning); animation: jitter 0.1s infinite; }
+
+@keyframes vhs-flicker { 0% { opacity: 0.7; } 50% { opacity: 0.8; } 100% { opacity: 0.7; } }
+@keyframes jitter { 0% { transform: translate(0,0); } 33% { transform: translate(-1px, 0); } 66% { transform: translate(1px, 0); } }

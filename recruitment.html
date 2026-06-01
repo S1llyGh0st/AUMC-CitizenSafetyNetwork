@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="style.css">
 <div class="vhs-screen">
-    <div class="panel">
-        <h1>RECRUITMENT PROTOCOL</h1>
-        <p>Candidate ID: <span class="redacted">[REDACTED]</span></p>
-        <p>You are not being recruited. You are being integrated.</p>
-        <button onclick="alert('Permission acknowledged.')">ACCEPT INTEGRATION</button>
-    </div>
+    <nav class="nav"><a href="index.html">Home</a><a href="recruitment.html">Recruitment</a><a href="terminal.html">Terminal</a></nav>
+    <h1>RECRUITMENT PROTOCOL</h1>
+    <input id="terminalInput" placeholder="Enter Code...">
+    <button onclick="processCmd()">EXECUTE</button>
+    <div id="out"></div>
+    <script src="main.js"></script>
 </div>

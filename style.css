@@ -1,51 +1,190 @@
-/* Core Terminal Design */
+/* ====================================================================
+   AUMC-CSN CORE TERMINAL ARCHITECTURE & STYLING CORE
+   ==================================================================== */
+
+@keyframes globalBreathing {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(0.993); filter: brightness(0.88); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes scanlineAnim {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes textGlitch {
+    0% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+    49% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+    50% { text-shadow: -2px 0 #ff0000, 2px 0 #0000ff; }
+    52% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+    100% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #0a0a0a;
+    background-color: #050605;
     color: #00ff41;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    padding: 20px;
-    overflow-x: hidden;
+    padding: 30px;
+    line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+    /* The Breathing Anomaly: 60 seconds per cycle (one heartbeat per minute) */
+    animation: globalBreathing 60s ease-in-out infinite;
 }
 
-/* CRT Scanline & Subtle Glow Simulation */
+/* CRT Master Overlays */
 body::before {
     content: " ";
     display: block;
     position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+    background-size: 100% 4px;
     z-index: 9999;
-    background-size: 100% 4px, 6px 100%;
     pointer-events: none;
 }
 
-.terminal-glow {
-    text-shadow: 0 0 4px rgba(0, 255, 65, 0.5);
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 5px;
+    background: rgba(0, 255, 65, 0.07);
+    opacity: 0.8;
+    z-index: 10000;
+    pointer-events: none;
+    animation: scanlineAnim 8s linear infinite;
 }
 
-/* Navigation Menu (Required on every page) */
-.nav-container {
-    border-bottom: 2px solid #00ff41;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
+/* Base Layout Containers */
+.terminal-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #00ff41;
+    padding: 25px;
+    background: rgba(5, 6, 5, 0.95);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.15);
 }
 
-.nav-link {
+.terminal-header {
+    border-bottom: 2px double #00ff41;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* Global Navigation Menu */
+.nav-network {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-bottom: 1px dashed #00ff41;
+}
+
+.nav-network a {
     color: #00ff41;
     text-decoration: none;
-    margin-right: 15px;
+    padding: 4px 10px;
+    border: 1px solid transparent;
     text-transform: uppercase;
-    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-.nav-link:hover {
-    background-color: #00ff41;
-    color: #0a0a0a;
+.nav-network a:hover, .nav-network a.active {
+    border-color: #00ff41;
+    background: rgba(0, 255, 65, 0.1);
+    animation: textGlitch 0.3s linear;
 }
 
-/* Red Truth Layer Specific styling */
-body.truth-layer {
+/* Utility Design Blocks */
+.alert-box {
+    border: 1px solid #ff0000;
+    background: rgba(255, 0, 0, 0.05);
     color: #ff0000;
-    text-shadow: 0 0 4px rgba(255, 0, 0, 0.5);
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.secure-log {
+    background: #020302;
+    border-left: 3px solid #00ff41;
+    padding: 15px;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+}
+
+.glitch-text {
+    animation: textGlitch 4s infinite;
+}
+
+/* Interactive Interfaces */
+.terminal-input-group {
+    display: flex;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.terminal-field {
+    background: #000;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    padding: 10px;
+    font-family: monospace;
+    flex-grow: 1;
+}
+
+.terminal-field:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+.terminal-btn {
+    background: #00ff41;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.terminal-btn:hover {
+    background: #020302;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+}
+
+/* ====================================================================
+   TRUTH LAYER SYSTEM (TRUTH REDISCOVERY OVERRIDE)
+   ==================================================================== */
+body.truth-layer {
+    background-color: #0a0101;
+    color: #ff0000;
+    animation: globalBreathing 12s ease-in-out infinite; /* Breathing becomes dangerously rapid */
+}
+
+body.truth-layer::after {
+    background: rgba(255, 0, 0, 0.07);
+}
+
+body.truth-layer .terminal-wrapper {
+    border-color: #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+body.truth-layer .nav-network a {
+    color: #ff0000;
+}
+
+body.truth-layer .nav-network a:hover {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.1);
 }

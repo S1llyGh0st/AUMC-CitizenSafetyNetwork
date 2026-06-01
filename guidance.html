@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUMC PUBLIC GUIDANCE SYSTEM</title>
+    <title>AUMC-CSN // SYSTEM PUBLIC SAFETY GUIDANCE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <main class="vhs-screen" style="max-width: 1200px; margin: 0 auto;">
         
-        <header style="margin-bottom: 30px;">
-            <h1 style="color: #00ff41; margin: 0; font-size: 1.8em;">PUBLIC GUIDANCE — PROTECTIVE MEASURES</h1>
-            <p style="margin: 3px 0 0 0; font-size: 0.85em; color: #ff0000; font-weight: bold;">[AMENDED STATUS: CIVIL COMPLIANCE PROTOCOLS CHECK]</p>
-        </header>
-
-        <!-- MASTER NAVIGATION INTERFACE OVERLAY -->
-        <nav class="system-ui-nav" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 35px; border-bottom: 1px solid rgba(0,255,65,0.3); padding-bottom: 15px;">
-            <a href="index.html" style="background:#000; color:#00ff41; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">HOME</a>
-            <a href="guidance.html" style="background:#00ff41; color:#000; font-weight:bold; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">GUIDANCE</a>
-            <a href="archive.html" style="background:#000; color:#00ff41; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">ARCHIVE</a>
-            <a href="research.html" style="background:#000; color:#00ff41; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">RESEARCH</a>
-            <a href="perspective.html" style="background:#000; color:#00ff41; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">PERSPECTIVES</a>
-            <a href="recruitment.html" style="background:#000; color:#00ff41; text-align:center; padding:10px; border:1px solid #00ff41; text-decoration:none;">RECRUITMENT</a>
+        <!-- REWIRED UI NAVIGATION ELEMENT BAR -->
+        <nav style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border: 1px solid #00ff41; background: rgba(0,10,0,0.9); padding: 12px 20px; margin-bottom: 35px;">
+            <div style="font-weight: bold; color: #00ff41;">AUMC-CSN // SECURITY_GUIDE</div>
+            <div style="display: flex; gap: 8px;">
+                <a href="index.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">HOME</a>
+                <a href="guidance.html" style="background: #00ff41; color: #000; font-weight: bold; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">GUIDANCE</a>
+                <a href="archive.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">ARCHIVE</a>
+                <a href="research.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">RESEARCH</a>
+                <a href="perspective.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">PERSPECTIVES</a>
+                <a href="recruitment.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">RECRUITMENT</a>
+                <a href="terminal.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">TERMINAL</a>
+                <a href="restricted.html" style="color: #00ff41; text-decoration: none; padding: 6px 14px; font-size: 0.85em; border: 1px solid #00ff41;">RESTRICTED</a>
+            </div>
         </nav>
 
-        <section class="bulletin-box">
-            <ol style="line-height: 1.8; padding-left: 20px;">
+        <section style="background: rgba(0,12,0,0.4); border: 1px solid #00ff41; padding: 30px;">
+            <h2 style="margin-top: 0; color: #ff0000; border-bottom: 1px dashed #ff0000; padding-bottom: 5px;">PUBLIC GUIDANCE — PROTECTIVE MEASURES</h2>
+            
+            <p style="font-weight: bold; margin-bottom: 20px; color: #ff0000;">[REVISED] PREVIOUS GUIDANCE (PSA-001) RECOMMENDED COMPASSION. THIS GUIDANCE HAS BEEN RETRACTED. DO NOT ACT ON COMPASSION.</p>
+            
+            <ol style="line-height: 2; font-family: monospace;">
                 <li>AVOID ISOLATION WHEN POSSIBLE.</li>
                 <li>AVOID EXCESSIVE TRUST.</li>
                 <li>MINIMIZE VERBAL ACKNOWLEDGMENT OF UNKNOWN INDIVIDUALS.</li>
@@ -38,13 +42,11 @@
                 <li>IF CONTRADICTORY GUIDANCE IS RECEIVED, FOLLOW THE MOST RECENT BROADCAST.</li>
                 <li>IF NO BROADCASTS ARE RECEIVED FOR OVER 24 HOURS, REMAIN INDOORS.</li>
             </ol>
-            <div style="background: rgba(255,0,0,0.08); border: 1px solid #ff0000; color: #ff0000; padding: 15px; margin-top: 20px; font-weight: bold; font-family: monospace;">
-                *[REVISED] PREVIOUS GUIDANCE (PSA-001) RECOMMENDED COMPASSION. THIS GUIDANCE HAS BEEN RETRACTED. DO NOT ACT ON COMPASSION.*
-            </div>
+            <p style="color: #ff0000; margin-top: 20px; font-weight: bold;">"The breathing is inconsistent. You hear fewer breaths than bodies."</p>
         </section>
 
-        <footer style="margin-top: 50px; border-top: 1px solid rgba(0,255,65,0.2); padding-top: 15px; font-size: 0.85em; opacity: 0.4; text-align: center;">
-            AUMC_FOOTER_PSA_v2.41: "You Will Not End Up like [REDACTED]...You Will Be Fine"
+        <footer class="forced-footer" style="text-align: center;">
+            <p>AUMC_FOOTER_PSA_v2.41 // "You Will Not End Up like [REDACTED]...You Will Be <span style="color:#ff0000; font-weight:bold;">Fine</span>"</p>
         </footer>
 
     </main>

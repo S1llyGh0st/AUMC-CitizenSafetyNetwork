@@ -1,356 +1,63 @@
-/* ==================================================
-AUMC-CSN CORE VISUAL SYSTEM
-================================================== */
-
 :root {
---bg: #020402;
---panel: #061106;
---border: rgba(0,255,102,.18);
---text: #8dffb5;
---bright: #00ff66;
---warning: #ff4d4d;
---yellow: #ffe066;
+    --bright: #00FF41; /* Classic Matrix Green */
+    --warning: #FF0000;
+    --vhs-line: rgba(255, 255, 255, 0.03);
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+body {
+    background-color: #020202;
+    color: var(--bright);
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    padding: 40px;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-html{
-scroll-behavior:smooth;
+/* CRT INTERLACE LAYER */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(0deg, var(--vhs-line) 0px, var(--vhs-line) 1px, rgba(0,0,0,0.6) 1px, rgba(0,0,0,0.6) 3px);
+    animation: vhs-flicker 0.15s infinite;
+    opacity: 0.75;
 }
 
-body{
-background:var(--bg);
-color:var(--text);
-font-family:"Courier New", monospace;
-min-height:100vh;
-line-height:1.7;
-overflow-x:hidden;
-position:relative;
+/* TUBE GLOW */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.05) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 9998;
+    pointer-events: none;
 }
 
-/* ==================================================
-CRT SCREEN
-================================================== */
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:9999;
-
-```
-background:
-repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,.025),
-    rgba(255,255,255,.025) 1px,
-    transparent 2px,
-    transparent 4px
-);
-
-animation:flicker .12s infinite;
-```
-
+/* TEXT GLOW */
+.vhs-screen {
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 2px rgba(0, 255, 65, 1), 0 0 10px rgba(0, 255, 65, 0.8), 0 0 20px rgba(0, 255, 65, 0.4);
+    filter: contrast(1.4) brightness(1.2);
 }
 
-body::after{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-opacity:.12;
-
-```
-background-image:
-radial-gradient(
-    rgba(0,255,102,.18) .5px,
-    transparent .5px
-);
-
-background-size:3px 3px;
-```
-
+.glitch-screen {
+    color: var(--warning) !important;
+    text-shadow: 0 0 2px rgba(255, 0, 0, 1), 0 0 15px rgba(255, 0, 0, 0.8);
+    animation: jitter 0.08s infinite;
 }
 
-@keyframes flicker{
-0%{opacity:.90;}
-50%{opacity:1;}
-100%{opacity:.87;}
-}
-
-/* ==================================================
-PAGE WRAPPER
-================================================== */
-
-.container{
-width:min(1300px,95%);
-margin:auto;
-padding:30px;
-}
-
-/* ==================================================
-TOP SYSTEM BAR
-================================================== */
-
-.system-bar{
-border:1px solid var(--border);
-margin-bottom:25px;
-padding:10px 20px;
-
-```
-background:
-linear-gradient(
-    90deg,
-    rgba(0,255,102,.08),
-    transparent
-);
-
-overflow:hidden;
-```
-
-}
-
-.system-bar marquee{
-color:var(--bright);
-}
-
-/* ==================================================
-PANELS
-================================================== */
-
-.panel{
-background:rgba(0,20,0,.35);
-border:1px solid var(--border);
-
-```
-margin-bottom:25px;
-padding:20px;
-
-backdrop-filter:blur(2px);
-
-box-shadow:
-0 0 12px rgba(0,255,102,.05),
-inset 0 0 30px rgba(0,255,102,.015);
-```
-
-}
-
-.panel:hover{
-border-color:rgba(0,255,102,.35);
-}
-
-.panel h2{
-color:var(--bright);
-text-transform:uppercase;
-
-```
-margin-bottom:15px;
-padding-bottom:10px;
-
-border-bottom:
-1px solid rgba(0,255,102,.15);
-```
-
-}
-
-/* ==================================================
-GRID
-================================================== */
-
-.grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(400px,1fr));
-
-```
-gap:20px;
-```
-
-}
-
-/* ==================================================
-BULLETINS
-================================================== */
-
-.bulletin{
-border-left:3px solid var(--bright);
-
-```
-padding:10px 15px;
-margin-bottom:10px;
-
-background:
-rgba(0,255,102,.03);
-```
-
-}
-
-.time{
-color:#4cff95;
-margin-right:10px;
-}
-
-.bulletin.warning{
-border-left-color:var(--warning);
-}
-
-/* ==================================================
-STATUS TAGS
-================================================== */
-
-.status{
-display:inline-block;
-
-```
-border:1px solid var(--bright);
-
-padding:4px 10px;
-margin:4px;
-
-font-size:.8rem;
-```
-
-}
-
-.status.red{
-color:var(--warning);
-border-color:var(--warning);
-}
-
-/* ==================================================
-TERMINAL
-================================================== */
-
-.terminal{
-background:#000;
-color:var(--bright);
-
-```
-border:1px solid var(--bright);
-
-padding:20px;
-
-overflow:auto;
-
-box-shadow:
-0 0 15px rgba(0,255,102,.12);
-```
-
-}
-
-.cursor::after{
-content:"_";
-animation:blink 1s infinite;
-}
-
-@keyframes blink{
-50%{opacity:0;}
-}
-
-/* ==================================================
-LINKS
-================================================== */
-
-a{
-color:#7effc0;
-text-decoration:none;
-}
-
-a:hover
-
-/* ==================================================
-LISTS
-================================================== */
-
-ul{
-list-style:none;
-}
-
-li{
-padding:8px 0;
-border-left:2px solid rgba(0,255,102,.15);
-padding-left:12px;
-}
-
-/* ==================================================
-REDACTIONS
-================================================== */
-
-.redacted{
-background:#000;
-color:transparent;
-position:relative;
-}
-
-.redacted::after{
-content:"[REDACTED]";
-position:absolute;
-left:0;
-color:var(--bright);
-}
-
-/* ==================================================
-ARG HIDDEN CLUES
-================================================== */
-
-.arg-glitch-hidden{
-position:absolute;
-
-```
-opacity:.03;
-
-font-size:10px;
-
-pointer-events:none;
-```
-
-}
-
-.hidden-message{
-opacity:.05;
-font-size:8px;
-}
-
-.hidden-message:hover{
-opacity:.2;
-}
-
-/* ==================================================
-GLOBAL ENDING
-================================================== */
-
-.global-ending{
-margin-top:50px;
-padding-top:20px;
-border-top:1px dashed rgba(0,255,102,.2);
-}
-
-.global-ending .fine{
-color:red;
-text-shadow:
-0 0 6px red;
-}
-
-/* ==================================================
-MOBILE
-================================================== */
-
-@media (max-width:800px){
-
-```
-.grid{
-    grid-template-columns:1fr;
-}
-
-.container{
-    width:98%;
-    padding:15px;
-}
-```
-
+@keyframes vhs-flicker { 0% { opacity: 0.7; } 50% { opacity: 0.78; } 100% { opacity: 0.72; } }
+@keyframes jitter { 0% { transform: translate(0,0); } 33% { transform: translate(-2px, 1px); } 66% { transform: translate(2px, -1px); } 100% { transform: translate(0,0); } }
+
+/* AUMC Panels */
+.panel {
+    background: rgba(0, 26, 0, 0.3);
+    border: 1px solid var(--bright);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
 }

@@ -3,43 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AUMC CSN - CIVILIAN RECRUITMENT PORTAL</title>
+    <title>AUMC-CSN // RECRUITMENT INTERFACE TERMINAL</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <main class="vhs-screen" style="max-width: 900px; margin: 0 auto; padding-top: 20px;">
+    <main class="vhs-screen" style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 10;">
         
-        <header style="border-bottom: 2px solid #00ff41; padding-bottom: 10px; margin-bottom: 30px;">
-            <h1 style="letter-spacing: 2px; margin: 0;">ANTI-UNDEAD MILITARY CAMPAIGN (AUMC)</h1>
-            <p style="margin: 5px 0 0 0; opacity: 0.8;">CITIZEN SAFETY NETWORK // RECRUITMENT INTERACTION TERMINAL</p>
-        </header>
-
-        <section style="background: rgba(10,10,10,0.8); padding: 25px; border: 1px dashed rgba(0, 255, 65, 0.4);">
-            <p>ALERT: INPUT EXCLUSION OVERRIDE CREDENTIAL CODES TO PROCEED WITH SECTOR SYSTEM ALIGNMENT.</p>
-            
-            <div style="margin: 30px 0; display: flex; align-items: center;">
-                <label for="terminal-override-input" style="font-weight: bold; margin-right: 15px;">SECURE ID:</label>
-                <input type="text" id="terminal-override-input" placeholder="[ENTER AUTH CODE]" autocomplete="off">
-                <button id="terminal-override-submit" style="margin-left: 15px;">RUN ANALYSIS</button>
+        <!-- RUNNING MARQUEE HEADER TICKER -->
+        <div class="system-marquee-banner" style="background: rgba(0, 20, 0, 0.8); border: 1px solid #00ff41; padding: 6px; font-size: 0.85em; overflow: hidden; white-space: nowrap; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0,255,65,0.2);">
+            <div style="display: inline-block; animation: scroll-ticker 25s linear infinite; font-family: monospace;">
+                ◆ RECRUITMENT INTERFACE PORTAL ◆ ENTER IDENTIFICATION AUTH PROTOCOL ◆ ACKNOWLEDGMENT MAY BE INTERPRETED AS PERMISSION ◆ THE DOOR WAS ALREADY UNLOCKED ◆
             </div>
-
-            <!-- TERMINAL LOG ENTRY INJECTIONS -->
-            <div id="terminal-feedback-log" style="color: #ff0000; font-family: monospace; font-weight: bold; margin-bottom: 20px;"></div>
-            
-            <!-- LAYER MANIFEST DYNAMIC TARGET HOOK -->
-            <div id="aumc-layer-manifest"></div>
-        </section>
-
-        <!-- SUBTLE ARG FOUND GLITCH NOISE HINT -->
-        <div class="system-hidden-flag" style="margin-top: 100px; text-align: center;">
-            S____G____ has hacked the [REDACTED] Page By putting the Code [REDACTED] In Base-16 and the only letter in the code in alphabetical order
         </div>
 
-        <footer class="forced-footer">
-            <p style="margin: 0; text-align: center;">
-                AUMC_SYSTEM_LOG_v2.41: "You Will Not End Up like [REDACTED]...You Will Be <span style="color:#ff0000; font-weight:bold;">Fine</span>"
-            </p>
+        <!-- UNIFIED TERMINAL UI NAVIGATION HUB BAR -->
+        <nav class="system-ui-nav" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border: 1px solid #00ff41; background: rgba(0,10,0,0.9); padding: 12px 20px; margin-bottom: 35px; box-shadow: 0 0 15px rgba(0,255,65,0.3);">
+            <div style="font-weight: bold; font-size: 1.1em; letter-spacing: 1px; color: #00ff41; font-family: monospace;">AUMC-CSN // INTERNAL_NET</div>
+            <div style="display: flex; gap: 8px; font-family: monospace;">
+                <a href="index.html" style="text-decoration: none; color: #00ff41; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: rgba(0,0,0,0.6);">HOME</a>
+                <a href="guidance.html" style="text-decoration: none; color: #00ff41; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: rgba(0,0,0,0.6);">GUIDANCE</a>
+                <a href="archive.html" style="text-decoration: none; color: #00ff41; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: rgba(0,0,0,0.6);">ARCHIVE</a>
+                <a href="research.html" style="text-decoration: none; color: #00ff41; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: rgba(0,0,0,0.6);">RESEARCH</a>
+                <a href="perspective.html" style="text-decoration: none; color: #00ff41; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: rgba(0,0,0,0.6);">PERSPECTIVES</a>
+                <a href="recruitment.html" style="text-decoration: none; color: #000; border: 1px solid #00ff41; padding: 6px 14px; font-size: 0.85em; background: #00ff41; font-weight: bold;">RECRUITMENT</a>
+            </div>
+        </nav>
+
+        <header style="border-left: 4px solid #00ff41; padding-left: 15px; margin-bottom: 40px; font-family: monospace;">
+            <h1 style="margin: 0; font-size: 2.2em; letter-spacing: 2px;">RECRUITMENT GATEWAY PORTAL</h1>
+            <p style="margin: 5px 0 0 0; color: #ff0000; font-weight: bold;">[SECURE CONSOLE OPERATIONAL] ENTER EXCLUSION AUTH OVERRIDE KEY</p>
+        </header>
+
+        <!-- SECURITY INTERACTION TERMINAL BLOCK -->
+        <section style="background: rgba(0,12,0,0.5); border: 1px dashed rgba(0,255,65,0.4); padding: 35px; box-shadow: 0 0 25px rgba(0,0,0,0.8); text-align: center;">
+            <p style="font-family: monospace; font-size: 1.1em; margin-bottom: 25px;">AUMC_SECURE_PROMPT_v4.11: RUN IDENTIFICATION BYPASS LOGS</p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <input type="text" id="terminal-override-input" placeholder="[ENTER AUTH ID CODE]" style="width: 320px; font-size: 1.1em; text-align: center; background: #001500; font-family: monospace; color: #00ff41; border: 1px solid #00ff41; padding: 10px;">
+                <button id="terminal-override-submit" style="font-weight: bold; font-family: monospace; padding: 10px 20px;">[RUN DECRYPTION]</button>
+            </div>
+
+            <!-- FEEDBACK TERMINAL RUNNING DIALOGUE -->
+            <div id="terminal-feedback-log" style="font-family: monospace; font-size: 1em; font-weight: bold; min-height: 24px; margin-top: 15px; color: #ff0000;"></div>
+
+            <!-- LAYER MATRIX TARGET PORTAL DYNAMIC INJECTION HOOK -->
+            <div id="aumc-layer-manifest" style="text-align: left; margin-top: 35px; font-family: monospace;"></div>
+        </section>
+
+        <!-- SUBTLE CONTEXT HACKER NOTE FOOTNOTE -->
+        <div class="system-hidden-flag" style="margin-top: 60px; text-align: center; opacity: 0.03; font-family: monospace;">
+            [SYSTEM ANOMALY — LOG REF: 0419] S____G____ HAS HACKED THE [REDACTED] PAGE BY PUTTING THE CODE [REDACTED] IN BASE-16 AND THE ONLY LETTER IN THE CODE IN ALPHABETICAL ORDER
+        </div>
+
+        <!-- RUNNING GLOBAL SYSTEM FOOTER METADATA -->
+        <footer class="forced-footer" style="margin-top: 60px; padding-top: 20px; border-top: 1px dashed rgba(0, 255, 65, 0.2); text-align: center; font-size: 0.85em; opacity: 0.6; font-family: monospace;">
+            <p>AUMC SECURE NETWORK v2.4.1 // COORD: 38.8951° N, 77.0364° W // THIS PORTAL IS MONITORED.</p>
+            <p style="color: #ff0000; margin-top: 5px; font-weight: bold;">"The house remembers. Future reference. One heartbeat per minute. The Great Chain ascends."</p>
         </footer>
 
     </main>

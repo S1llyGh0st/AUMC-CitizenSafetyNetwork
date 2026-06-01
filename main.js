@@ -11,5 +11,6 @@ const LORE = {
 function processCmd() {
     let input = document.getElementById('terminalInput').value.trim();
     if(input === "46696565") window.location.href = "YOUROWNUTTERANCE.html";
+    if(input === "12192020") alert("Silliness Doctrine Loaded. Messenger: SillyGhost.");
     if(LORE[input]) document.getElementById('out').innerHTML += `<p>> ${input}<br>${LORE[input]}</p>`;
 }

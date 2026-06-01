@@ -1,19 +1,73 @@
 /* ==========================================================================
-   AUMC CITIZEN SAFETY NETWORK: CORE GLOBAL INTERFACE MANUAL (style.css)
+   AUMC CITIZEN SAFETY NETWORK: ARCHIVAL OVERLAY INTERFACE (style.css)
    ========================================================================== */
 
-body {
-    background-color: #020202; 
-    color: #00FF41;            
-    font-family: "Courier New", Courier, monospace;
-    margin: 0;
-    padding: 40px;
-    overflow-x: hidden;
-    position: relative;
-    --vhs-line: rgba(255, 255, 255, 0.03);
+:root {
+    --terminal-green: #00FF41;
+    --terminal-glow: rgba(0, 255, 65, 0.4);
+    --glitch-red: #FF0000;
+    --glitch-glow: rgba(255, 0, 0, 0.5);
+    --vhs-line: rgba(255, 255, 255, 0.02);
 }
 
-/* THE TOTAL INTERLACE LAYER */
+body {
+    background-color: #010101; 
+    color: var(--terminal-green);            
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* GLOBAL UNIFIED NAVIGATION UI */
+.aumc-global-nav {
+    background: rgba(0, 15, 0, 0.95);
+    border-bottom: 2px solid var(--terminal-green);
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px var(--terminal-glow);
+}
+.aumc-nav-title {
+    font-weight: bold;
+    font-size: 0.95em;
+    letter-spacing: 1px;
+}
+.aumc-nav-links {
+    display: flex;
+    gap: 15px;
+}
+.aumc-nav-links a {
+    color: var(--terminal-green);
+    text-decoration: none;
+    font-size: 0.85em;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+.aumc-nav-links a:hover, .aumc-nav-links a.active {
+    background: var(--terminal-green);
+    color: #000;
+    border: 1px solid var(--terminal-green);
+    box-shadow: 0 0 8px var(--terminal-glow);
+}
+
+/* SYSTEM-WIDE WRAPPER RESILIENCE */
+.vhs-screen {
+    position: relative;
+    z-index: 10;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-shadow: 0 0 2px var(--terminal-green), 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+/* CRT INTERLACE SCANLINE EMULATION Layer */
 body::after {
     content: "";
     position: fixed;
@@ -25,95 +79,124 @@ body::after {
         0deg,
         var(--vhs-line) 0px,
         var(--vhs-line) 1px,
-        rgba(0, 0, 0, 0.6) 1px, 
-        rgba(0, 0, 0, 0.6) 3px
+        rgba(0, 0, 0, 0.65) 1px, 
+        rgba(0, 0, 0, 0.65) 3px
     );
-    animation: vhs-flicker 0.15s infinite;
-    opacity: 0.75;
+    animation: vhs-flicker 0.2s infinite;
+    opacity: 0.85;
 }
 
-/* THE TUBE GLOW RADIAL MATRIX */
+/* RADIAL TUBE GLOW MATRIX */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(
-        circle,
-        rgba(0, 255, 65, 0.05) 0%, 
-        rgba(0, 0, 0, 0.7) 100%
-    );
+    background: radial-gradient(circle, rgba(0, 255, 65, 0.04) 0%, rgba(0, 0, 0, 0.85) 100%);
     z-index: 9998;
     pointer-events: none;
 }
 
-/* THE SUPER-GLOWING TEXT WRAPPER */
-.vhs-screen {
-    position: relative;
-    z-index: 10;
-    text-shadow: 
-        0 0 2px rgba(0, 255, 65, 1),   
-        0 0 10px rgba(0, 255, 65, 0.8), 
-        0 0 20px rgba(0, 255, 65, 0.4), 
-        0 0 30px rgba(0, 255, 65, 0.2); 
-    filter: contrast(1.4) brightness(1.2);
-    letter-spacing: 1px;
+/* DEEP INSTABILITY OVERRIDES */
+.glitch-screen, .glitch-text {
+    color: var(--glitch-red) !important;
+    text-shadow: 0 0 2px var(--glitch-red), 0 0 12px var(--glitch-glow) !important;
+    animation: jitter 0.15s infinite !important;
 }
 
-/* DYNAMIC GLITCH OVERRIDE */
-.glitch-screen {
-    color: #ff0000 !important;
-    text-shadow: 
-        0 0 2px rgba(255, 0, 0, 1),
-        0 0 15px rgba(255, 0, 0, 0.8),
-        0 0 30px rgba(255, 0, 0, 0.4) !important;
-    --vhs-line: rgba(255, 0, 0, 0.2);
-    animation: jitter 0.08s infinite;
-}
-
-.forced-footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px dashed rgba(0, 255, 65, 0.2);
+/* INTERACTIVE COMPONENTS */
+button, input[type="text"], select {
+    background: #001000;
+    color: var(--terminal-green);
+    border: 1px solid var(--terminal-green);
+    padding: 8px 16px;
+    font-family: "Courier New", monospace;
     font-size: 0.9em;
-    opacity: 0.7;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+    text-shadow: 0 0 4px rgba(0, 255, 65, 0.4);
+    outline: none;
+}
+button:hover {
+    background: var(--terminal-green);
+    color: #000;
+    box-shadow: 0 0 15px var(--terminal-green);
+    text-shadow: none;
+    cursor: pointer;
 }
 
+/* COLLAPSIBLE ACCORDION PANELS */
+.archive-accordion {
+    border: 1px dashed rgba(0, 255, 65, 0.3);
+    margin-bottom: 12px;
+    background: rgba(0, 8, 0, 0.5);
+}
+.accordion-header {
+    padding: 12px 20px;
+    background: rgba(0, 20, 0, 0.6);
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+}
+.accordion-header:hover {
+    background: rgba(0, 40, 0, 0.8);
+}
+.accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    font-size: 0.9em;
+    border-top: 1px transparent;
+    line-height: 1.6;
+}
+
+/* RECURRING DECAY MOTIFS */
+.forced-footer {
+    margin-top: 80px;
+    padding-top: 25px;
+    border-top: 1px dashed rgba(0, 255, 65, 0.2);
+    font-size: 0.85em;
+    opacity: 0.6;
+    display: flex;
+    justify-content: space-between;
+}
+.redacted {
+    background: #000;
+    color: #000;
+    border: 1px solid #111;
+    padding: 0 3px;
+    user-select: none;
+    transition: background 0.5s ease;
+}
+.redacted:hover {
+    background: rgba(255,0,0,0.1);
+    color: var(--glitch-red);
+}
 .system-hidden-flag {
-    opacity: 0.03;
+    opacity: 0.02;
     font-size: 9px;
     user-select: none;
     pointer-events: none;
 }
 
+/* ANIMATION FRAMEWORKS */
 @keyframes vhs-flicker {
-    0% { opacity: 0.7; }
-    50% { opacity: 0.78; }
-    100% { opacity: 0.72; }
+    0% { opacity: 0.82; }
+    50% { opacity: 0.87; }
+    100% { opacity: 0.84; }
 }
-
 @keyframes jitter {
-    0% { transform: translate(0,0); }
-    33% { transform: translate(-2px, 1px); }
-    66% { transform: translate(2px, -1px); }
-    100% { transform: translate(0,0); }
+    0% { transform: translate(0, 0); filter: hue-rotate(0deg); }
+    25% { transform: translate(-1px, 1px); }
+    50% { transform: translate(1px, -1px); filter: hue-rotate(15deg); }
+    75% { transform: translate(-1px, -1px); }
+    100% { transform: translate(0, 0); }
 }
-
-button, input[type="text"] {
-    background: #001a00;
-    color: #00ff41;
-    border: 1px solid #00ff41;
-    padding: 10px 20px;
-    font-family: monospace;
-    font-size: 1em;
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
-    outline: none;
+.pulse-indicator {
+    animation: monitor-pulse 60s infinite linear;
 }
-
-button:hover {
-    background: #00ff41;
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
-    text-shadow: none;
-    cursor: crosshair;
+@keyframes monitor-pulse {
+    0%, 98%, 100% { opacity: 0.4; }
+    99% { opacity: 1; transform: scale(1.02); }
 }

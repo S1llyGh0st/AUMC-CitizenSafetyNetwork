@@ -1,73 +1,27 @@
 /* ==========================================================================
-   AUMC CITIZEN SAFETY NETWORK: ARCHIVAL OVERLAY INTERFACE (style.css)
+   AUMC SYSTEM INTERFACE: GLOBAL STYLE SPECIFICATION MATRIX
    ========================================================================== */
 
 :root {
-    --terminal-green: #00FF41;
-    --terminal-glow: rgba(0, 255, 65, 0.4);
-    --glitch-red: #FF0000;
-    --glitch-glow: rgba(255, 0, 0, 0.5);
-    --vhs-line: rgba(255, 255, 255, 0.02);
+    --phosphor-green: #00FF41;
+    --phosphor-glow: rgba(0, 255, 65, 0.25);
+    --glitch-red: #ff0033;
+    --glitch-red-glow: rgba(255, 0, 51, 0.4);
+    --terminal-black: #020202;
+    --scanline-color: rgba(0, 0, 0, 0.55);
 }
 
 body {
-    background-color: #010101; 
-    color: var(--terminal-green);            
+    background-color: var(--terminal-black);
+    color: var(--phosphor-green);
     font-family: "Courier New", Courier, monospace;
     margin: 0;
-    padding: 0;
+    padding: 30px;
     overflow-x: hidden;
     position: relative;
 }
 
-/* GLOBAL UNIFIED NAVIGATION UI */
-.aumc-global-nav {
-    background: rgba(0, 15, 0, 0.95);
-    border-bottom: 2px solid var(--terminal-green);
-    position: sticky;
-    top: 0;
-    z-index: 10000;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 15px var(--terminal-glow);
-}
-.aumc-nav-title {
-    font-weight: bold;
-    font-size: 0.95em;
-    letter-spacing: 1px;
-}
-.aumc-nav-links {
-    display: flex;
-    gap: 15px;
-}
-.aumc-nav-links a {
-    color: var(--terminal-green);
-    text-decoration: none;
-    font-size: 0.85em;
-    padding: 5px 10px;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
-}
-.aumc-nav-links a:hover, .aumc-nav-links a.active {
-    background: var(--terminal-green);
-    color: #000;
-    border: 1px solid var(--terminal-green);
-    box-shadow: 0 0 8px var(--terminal-glow);
-}
-
-/* SYSTEM-WIDE WRAPPER RESILIENCE */
-.vhs-screen {
-    position: relative;
-    z-index: 10;
-    padding: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-shadow: 0 0 2px var(--terminal-green), 0 0 8px rgba(0, 255, 65, 0.4);
-}
-
-/* CRT INTERLACE SCANLINE EMULATION Layer */
+/* MASTER CRT INTERLACE FILTER layer */
 body::after {
     content: "";
     position: fixed;
@@ -77,126 +31,154 @@ body::after {
     z-index: 9999;
     background: repeating-linear-gradient(
         0deg,
-        var(--vhs-line) 0px,
-        var(--vhs-line) 1px,
-        rgba(0, 0, 0, 0.65) 1px, 
-        rgba(0, 0, 0, 0.65) 3px
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        var(--scanline-color) 1px, 
+        var(--scanline-color) 3px
     );
     animation: vhs-flicker 0.2s infinite;
-    opacity: 0.85;
 }
 
-/* RADIAL TUBE GLOW MATRIX */
+/* PHYSICAL RADIAL MONITOR BLOSSOM SCREEN GLOW */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle, rgba(0, 255, 65, 0.04) 0%, rgba(0, 0, 0, 0.85) 100%);
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 255, 65, 0.04) 0%, 
+        rgba(0, 0, 0, 0.8) 100%
+    );
     z-index: 9998;
     pointer-events: none;
 }
 
-/* DEEP INSTABILITY OVERRIDES */
-.glitch-screen, .glitch-text {
-    color: var(--glitch-red) !important;
-    text-shadow: 0 0 2px var(--glitch-red), 0 0 12px var(--glitch-glow) !important;
-    animation: jitter 0.15s infinite !important;
+/* TERMINAL SCREEN EMULATION FILTER */
+.vhs-screen {
+    position: relative;
+    z-index: 10;
+    text-shadow: 
+        0 0 2px var(--phosphor-green),   
+        0 0 8px var(--phosphor-glow);
+    filter: contrast(1.3) brightness(1.1);
+    letter-spacing: 0.5px;
 }
 
-/* INTERACTIVE COMPONENTS */
-button, input[type="text"], select {
-    background: #001000;
-    color: var(--terminal-green);
-    border: 1px solid var(--terminal-green);
-    padding: 8px 16px;
-    font-family: "Courier New", monospace;
-    font-size: 0.9em;
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
-    text-shadow: 0 0 4px rgba(0, 255, 65, 0.4);
-    outline: none;
-}
-button:hover {
-    background: var(--terminal-green);
-    color: #000;
-    box-shadow: 0 0 15px var(--terminal-green);
-    text-shadow: none;
-    cursor: pointer;
-}
-
-/* COLLAPSIBLE ACCORDION PANELS */
-.archive-accordion {
-    border: 1px dashed rgba(0, 255, 65, 0.3);
-    margin-bottom: 12px;
-    background: rgba(0, 8, 0, 0.5);
-}
-.accordion-header {
-    padding: 12px 20px;
-    background: rgba(0, 20, 0, 0.6);
-    cursor: pointer;
-    font-weight: bold;
+/* UNIFIED NAVIGATION CONTAINER */
+.system-ui-nav {
     display: flex;
     justify-content: space-between;
-    user-select: none;
-}
-.accordion-header:hover {
-    background: rgba(0, 40, 0, 0.8);
-}
-.accordion-content {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    font-size: 0.9em;
-    border-top: 1px transparent;
-    line-height: 1.6;
+    align-items: center;
+    border: 1px solid var(--phosphor-green);
+    background: rgba(0, 15, 0, 0.85);
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px var(--phosphor-glow);
 }
 
-/* RECURRING DECAY MOTIFS */
+.nav-branding {
+    font-weight: bold;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-ui-btn {
+    text-decoration: none;
+    color: var(--phosphor-green);
+    border: 1px solid var(--phosphor-green);
+    padding: 6px 14px;
+    font-size: 0.85em;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    transition: all 0.15s ease-in-out;
+}
+
+.nav-ui-btn:hover, .nav-ui-btn.active-ui-btn {
+    background: var(--phosphor-green);
+    color: var(--terminal-black);
+    box-shadow: 0 0 12px var(--phosphor-green);
+    cursor: crosshair;
+}
+
+/* CORRUPTED ELEMENT MODIFIERS */
+.glitch-screen {
+    color: var(--glitch-red) !important;
+    text-shadow: 
+        0 0 2px var(--glitch-red),
+        0 0 12px var(--glitch-red-glow) !important;
+    animation: master-jitter 0.08s infinite !important;
+}
+
 .forced-footer {
     margin-top: 80px;
-    padding-top: 25px;
+    padding-top: 20px;
     border-top: 1px dashed rgba(0, 255, 65, 0.2);
     font-size: 0.85em;
     opacity: 0.6;
-    display: flex;
-    justify-content: space-between;
 }
-.redacted {
-    background: #000;
-    color: #000;
-    border: 1px solid #111;
-    padding: 0 3px;
-    user-select: none;
-    transition: background 0.5s ease;
-}
-.redacted:hover {
-    background: rgba(255,0,0,0.1);
-    color: var(--glitch-red);
-}
+
 .system-hidden-flag {
     opacity: 0.02;
     font-size: 9px;
     user-select: none;
     pointer-events: none;
+    transition: opacity 1s;
 }
 
-/* ANIMATION FRAMEWORKS */
+.system-hidden-flag:hover {
+    opacity: 0.15;
+}
+
+/* FORMS AND INPUT NODES */
+button, input[type="text"] {
+    background: #001100;
+    color: var(--phosphor-green);
+    border: 1px solid var(--phosphor-green);
+    padding: 10px 18px;
+    font-family: "Courier New", monospace;
+    font-size: 0.95em;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+    outline: none;
+}
+
+button {
+    cursor: crosshair;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+button:hover {
+    background: var(--phosphor-green);
+    color: var(--terminal-black);
+    box-shadow: 0 0 15px var(--phosphor-green);
+}
+
+/* EXPERIMENTAL BREATHING WAVEFORM ANIMATION */
+.breathing-pulse {
+    animation: subtle-chest-heave 4s ease-in-out infinite;
+}
+
+/* CORE TERMINAL ANIMATION PROTOCOLS */
 @keyframes vhs-flicker {
-    0% { opacity: 0.82; }
-    50% { opacity: 0.87; }
-    100% { opacity: 0.84; }
+    0% { opacity: 0.96; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
 }
-@keyframes jitter {
-    0% { transform: translate(0, 0); filter: hue-rotate(0deg); }
-    25% { transform: translate(-1px, 1px); }
-    50% { transform: translate(1px, -1px); filter: hue-rotate(15deg); }
-    75% { transform: translate(-1px, -1px); }
-    100% { transform: translate(0, 0); }
+
+@keyframes master-jitter {
+    0% { transform: translate(0,0) skewX(0deg); }
+    25% { transform: translate(-1px, 1px) skewX(-1deg); }
+    50% { transform: translate(1px, -1px) skewX(1deg); }
+    75% { transform: translate(-1px, -1px) skewX(0deg); }
+    100% { transform: translate(1px, 1px) skewX(0deg); }
 }
-.pulse-indicator {
-    animation: monitor-pulse 60s infinite linear;
-}
-@keyframes monitor-pulse {
-    0%, 98%, 100% { opacity: 0.4; }
-    99% { opacity: 1; transform: scale(1.02); }
+
+@keyframes subtle-chest-heave {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.015); opacity: 1; text-shadow: 0 0 12px var(--phosphor-green); }
 }

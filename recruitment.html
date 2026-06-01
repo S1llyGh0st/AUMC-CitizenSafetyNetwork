@@ -1,9 +1,49 @@
-<link rel="stylesheet" href="style.css">
-<div class="vhs-screen">
-    <nav class="nav"><a href="index.html">Home</a><a href="recruitment.html">Recruitment</a><a href="terminal.html">Terminal</a></nav>
-    <h1>RECRUITMENT PROTOCOL</h1>
-    <input id="terminalInput" placeholder="Enter Code...">
-    <button onclick="processCmd()">EXECUTE</button>
-    <div id="out"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUMC CSN - CIVILIAN RECRUITMENT PORTAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="vhs-screen" style="max-width: 900px; margin: 0 auto; padding-top: 20px;">
+        
+        <header style="border-bottom: 2px solid #00ff41; padding-bottom: 10px; margin-bottom: 30px;">
+            <h1 style="letter-spacing: 2px; margin: 0;">ANTI-UNDEAD MILITARY CAMPAIGN (AUMC)</h1>
+            <p style="margin: 5px 0 0 0; opacity: 0.8;">CITIZEN SAFETY NETWORK // RECRUITMENT INTERACTION TERMINAL</p>
+        </header>
+
+        <section style="background: rgba(10,10,10,0.8); padding: 25px; border: 1px dashed rgba(0, 255, 65, 0.4);">
+            <p>ALERT: INPUT EXCLUSION OVERRIDE CREDENTIAL CODES TO PROCEED WITH SECTOR SYSTEM ALIGNMENT.</p>
+            
+            <div style="margin: 30px 0; display: flex; align-items: center;">
+                <label for="terminal-override-input" style="font-weight: bold; margin-right: 15px;">SECURE ID:</label>
+                <input type="text" id="terminal-override-input" placeholder="[ENTER AUTH CODE]" autocomplete="off">
+                <button id="terminal-override-submit" style="margin-left: 15px;">RUN ANALYSIS</button>
+            </div>
+
+            <!-- TERMINAL LOG ENTRY INJECTIONS -->
+            <div id="terminal-feedback-log" style="color: #ff0000; font-family: monospace; font-weight: bold; margin-bottom: 20px;"></div>
+            
+            <!-- LAYER MANIFEST DYNAMIC TARGET HOOK -->
+            <div id="aumc-layer-manifest"></div>
+        </section>
+
+        <!-- SUBTLE ARG FOUND GLITCH NOISE HINT -->
+        <div class="system-hidden-flag" style="margin-top: 100px; text-align: center;">
+            S____G____ has hacked the [REDACTED] Page By putting the Code [REDACTED] In Base-16 and the only letter in the code in alphabetical order
+        </div>
+
+        <footer class="forced-footer">
+            <p style="margin: 0; text-align: center;">
+                AUMC_SYSTEM_LOG_v2.41: "You Will Not End Up like [REDACTED]...You Will Be <span style="color:#ff0000; font-weight:bold;">Fine</span>"
+            </p>
+        </footer>
+
+    </main>
+
     <script src="main.js"></script>
-</div>
+</body>
+</html>

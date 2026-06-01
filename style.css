@@ -1,24 +1,33 @@
 /* ====================================================================
-   AUMC-CSN CORE TERMINAL ARCHITECTURE & STYLING CORE
+   AUMC-CSN CORE TERMINAL ARCHITECTURE & VISUAL ENGINE
    ==================================================================== */
 
-@keyframes globalBreathing {
-    0% { transform: scale(1); filter: brightness(1); }
-    50% { transform: scale(0.993); filter: brightness(0.88); }
-    100% { transform: scale(1); filter: brightness(1); }
+@keyframes globalOrganicBreathing {
+    0% { transform: scale(1.000); filter: brightness(1.00) contrast(1.00); }
+    50% { transform: scale(1.005); filter: brightness(0.92) contrast(1.05); }
+    100% { transform: scale(1.000); filter: brightness(1.00) contrast(1.00); }
 }
 
-@keyframes scanlineAnim {
+@keyframes scanlineFall {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100%); }
 }
 
-@keyframes textGlitch {
-    0% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
-    49% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
-    50% { text-shadow: -2px 0 #ff0000, 2px 0 #0000ff; }
-    52% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
-    100% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+@keyframes microTear {
+    0% { transform: skew(0deg); filter: hue-rotate(0deg); }
+    10% { transform: skew(0.5deg); }
+    11% { transform: skew(-1deg); filter: sepia(0.2); }
+    12% { transform: skew(0deg); filter: hue-rotate(0deg); }
+    48% { opacity: 1; }
+    49% { opacity: 0.85; text-shadow: -2px 0 #ff0000, 2px 0 #0000ff; }
+    50% { opacity: 1; text-shadow: none; }
+    100% { transform: skew(0deg); }
+}
+
+@keyframes vignettePulse {
+    0% { box-shadow: inset 0 0 100px rgba(0,0,0,0.95); }
+    50% { box-shadow: inset 0 0 160px rgba(0,0,0,1); }
+    100% { box-shadow: inset 0 0 100px rgba(0,0,0,0.95); }
 }
 
 * {
@@ -26,140 +35,189 @@
 }
 
 body {
-    background-color: #050605;
+    background-color: #030403;
     color: #00ff41;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
-    padding: 30px;
-    line-height: 1.5;
-    position: relative;
+    padding: 40px 20px;
     min-height: 100vh;
-    /* The Breathing Anomaly: 60 seconds per cycle (one heartbeat per minute) */
-    animation: globalBreathing 60s ease-in-out infinite;
+    overflow-x: hidden;
+    position: relative;
+    /* Master System Breathing Lock: Synchronized to the entity's physiological countdown */
+    animation: globalOrganicBreathing 10s ease-in-out infinite;
 }
 
-/* CRT Master Overlays */
+/* Persistent Vignette Shroud */
 body::before {
     content: " ";
     display: block;
     position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%);
+    z-index: 9998;
+    pointer-events: none;
+    animation: vignettePulse 10s ease-in-out infinite;
+}
+
+/* CRT Line Scan Engine */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
     background-size: 100% 4px;
     z-index: 9999;
     pointer-events: none;
 }
 
-body::after {
-    content: " ";
-    display: block;
+.scanline-beam {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 5px;
-    background: rgba(0, 255, 65, 0.07);
-    opacity: 0.8;
+    top: 0; left: 0; width: 100%; height: 6px;
+    background: rgba(0, 255, 65, 0.08);
     z-index: 10000;
     pointer-events: none;
-    animation: scanlineAnim 8s linear infinite;
+    animation: scanlineFall 12s linear infinite;
 }
 
-/* Base Layout Containers */
-.terminal-wrapper {
-    max-width: 1000px;
+.terminal-frame {
+    max-width: 1100px;
     margin: 0 auto;
     border: 1px solid #00ff41;
-    padding: 25px;
-    background: rgba(5, 6, 5, 0.95);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.15);
+    padding: 30px;
+    background: rgba(3, 4, 3, 0.98);
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
-.terminal-header {
-    border-bottom: 2px double #00ff41;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
+.system-header {
+    border-bottom: 3px double #00ff41;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-/* Global Navigation Menu */
-.nav-network {
+/* Interactive Menu Matrix */
+.nav-matrix {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 15px 0;
+    margin: 20px 0;
     padding: 10px 0;
-    border-bottom: 1px dashed #00ff41;
+    border-bottom: 1px dashed rgba(0, 255, 65, 0.5);
 }
 
-.nav-network a {
+.nav-matrix a {
     color: #00ff41;
     text-decoration: none;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border: 1px solid transparent;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.nav-network a:hover, .nav-network a.active {
+.nav-matrix a:hover, .nav-matrix a.active {
     border-color: #00ff41;
-    background: rgba(0, 255, 65, 0.1);
-    animation: textGlitch 0.3s linear;
+    background: rgba(0, 255, 65, 0.08);
+    animation: microTear 0.2s linear;
 }
 
-/* Utility Design Blocks */
-.alert-box {
+/* Functional Layout Units */
+.emergency-banner {
     border: 1px solid #ff0000;
-    background: rgba(255, 0, 0, 0.05);
+    background: rgba(255, 0, 0, 0.04);
     color: #ff0000;
-    padding: 15px;
-    margin: 20px 0;
+    padding: 18px;
+    margin: 25px 0;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.secure-log {
-    background: #020302;
-    border-left: 3px solid #00ff41;
-    padding: 15px;
-    margin: 15px 0;
+.secure-stream {
+    background: #010201;
+    border-left: 4px solid #00ff41;
+    padding: 20px;
+    margin: 20px 0;
     white-space: pre-wrap;
     font-size: 0.9rem;
+    overflow-x: auto;
 }
 
-.glitch-text {
-    animation: textGlitch 4s infinite;
+.glitch-override {
+    animation: microTear 5s infinite;
+    display: inline-block;
 }
 
-/* Interactive Interfaces */
-.terminal-input-group {
+.input-console {
     display: flex;
-    margin: 20px 0;
-    gap: 10px;
+    margin: 25px 0;
+    gap: 12px;
 }
 
-.terminal-field {
-    background: #000;
+.console-field {
+    background: #000000;
     border: 1px solid #00ff41;
     color: #00ff41;
-    padding: 10px;
+    padding: 12px;
     font-family: monospace;
     flex-grow: 1;
+    font-size: 1rem;
 }
 
-.terminal-field:focus {
+.console-field:focus {
     outline: none;
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
 }
 
-.terminal-btn {
+.console-trigger {
     background: #00ff41;
-    color: #000;
+    color: #000000;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-family: monospace;
     font-weight: bold;
     cursor: pointer;
+    font-size: 0.95rem;
 }
 
-.terminal-btn:hover {
-    background: #020302;
+.console-trigger:hover {
+    background: #010201;
     color: #00ff41;
     border: 1px solid #00ff41;
+}
+
+/* Layer Manifest Layout */
+.layer-card {
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    margin: 20px 0;
+    background: rgba(1, 2, 1, 0.5);
+}
+
+.layer-title {
+    background: rgba(0, 255, 65, 0.1);
+    padding: 10px 15px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+    text-transform: uppercase;
+}
+
+.layer-content {
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Almost Invisible Whisper Layer */
+.hidden-rationalism {
+    opacity: 0.04;
+    font-size: 0.75rem;
+    text-align: right;
+    user-select: none;
+    transition: opacity 0.5s;
+}
+.hidden-rationalism:hover {
+    opacity: 0.3;
 }
 
 /* ====================================================================
@@ -168,23 +226,28 @@ body::after {
 body.truth-layer {
     background-color: #0a0101;
     color: #ff0000;
-    animation: globalBreathing 12s ease-in-out infinite; /* Breathing becomes dangerously rapid */
+    animation: globalOrganicBreathing 4s ease-in-out infinite; /* Desperation acceleration */
 }
 
-body.truth-layer::after {
-    background: rgba(255, 0, 0, 0.07);
+body.truth-layer::before {
+    animation: vignettePulse 4s ease-in-out infinite;
 }
 
-body.truth-layer .terminal-wrapper {
+body.truth-layer .terminal-frame {
     border-color: #ff0000;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 35px rgba(255, 0, 0, 0.25);
 }
 
-body.truth-layer .nav-network a {
+body.truth-layer .nav-matrix a {
     color: #ff0000;
 }
 
-body.truth-layer .nav-network a:hover {
+body.truth-layer .nav-matrix a:hover, body.truth-layer .nav-matrix a.active {
     border-color: #ff0000;
-    background: rgba(255, 0, 0, 0.1);
+    background: rgba(255, 0, 0, 0.08);
+}
+
+body.truth-layer .secure-stream {
+    border-left-color: #ff0000;
+    background: #050000;
 }

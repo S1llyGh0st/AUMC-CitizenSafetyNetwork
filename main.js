@@ -1,178 +1,154 @@
 /**
- * AUMC CITIZEN SAFETY NETWORK: ARCHIVE LOGIC CONSOLE (main.js)
+ * AUMC MONITORING INFRASTRUCTURE: NETWORK ROUTING ENGINE (main.js)
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    initGlobalNavigationUI();
-    initAccordionSystems();
-    initAUMCTerminal();
-    initClickableAnomalies();
-    initAudioEnvironment();
+    initializeAUMCInterface();
+    initializeEasterEggs();
 });
 
-// UNIFIED HIGH-UTILITY NAV HIGHLIGHTER
-function initGlobalNavigationUI() {
-    const currentPath = window.location.pathname.split("/").pop();
-    const navLinks = document.querySelectorAll(".aumc-nav-links a");
-    navLinks.forEach(link => {
-        if(link.getAttribute("href") === currentPath) {
-            link.classList.add("active");
-        }
-    });
-}
+function initializeAUMCInterface() {
+    const overrideInput = document.getElementById("terminal-override-input");
+    const overrideSubmit = document.getElementById("terminal-override-submit");
+    
+    if (!overrideInput || !overrideSubmit) return;
 
-// EXPANDABLE EMERGENCY HUB PANELS
-function initAccordionSystems() {
-    const headers = document.querySelectorAll(".accordion-header");
-    headers.forEach(header => {
-        header.addEventListener("click", function() {
-            const content = this.nextElementSibling;
-            const indicator = this.querySelector(".acc-indicator");
-            
-            if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-                content.style.maxHeight = "0px";
-                content.style.paddingTop = "0px";
-                content.style.paddingBottom = "0px";
-                if(indicator) indicator.innerText = "[+]";
-            } else {
-                content.style.maxHeight = content.scrollHeight + 40 + "px";
-                content.style.paddingTop = "15px";
-                content.style.paddingBottom = "15px";
-                if(indicator) indicator.innerText = "[-]";
-            }
-        });
-    });
-}
-
-// SECURE PASSCODE INTERACTION CONTROL
-function initAUMCTerminal() {
-    const txtInput = document.getElementById("terminal-override-input");
-    const btnSubmit = document.getElementById("terminal-override-submit");
-    if (!txtInput || !btnSubmit) return;
-
-    txtInput.addEventListener("keypress", function(e) {
+    overrideInput.addEventListener("keypress", function(e) {
         if (e.key === "Enter") {
-            validateBypassSequence(txtInput.value.trim());
+            validateBypassSequence(overrideInput.value.trim());
         }
     });
-    btnSubmit.addEventListener("click", function() {
-        validateBypassSequence(txtInput.value.trim());
+
+    overrideSubmit.addEventListener("click", function() {
+        validateBypassSequence(overrideInput.value.trim());
     });
 }
 
-function validateBypassSequence(rawKey) {
-    const cleanKey = rawKey.replace(/\s+/g, "");
-    const feedbackBox = document.getElementById("terminal-feedback-log");
+function validateBypassSequence(inputKey) {
+    const filteredKey = inputKey.replace(/\s+/g, "");
 
-    if (cleanKey === "46696565") {
-        if(feedbackBox) feedbackBox.innerText = "REDIRECT PROTOCOL ACCEPTED... TRANSMITTING UTTERANCE INDEX.";
-        setTimeout(() => { window.location.href = "YOUROWNUTTERANCE.html"; }, 1000);
+    // TARGET REDIRECT VECTOR 01
+    if (filteredKey === "46696565") {
+        window.location.href = "YOUROWNUTTERANCE.html";
         return;
     }
 
-    if (cleanKey === "12192020") {
-        injectArchivalLayerMatrix();
+    // LAYER RETRIEVAL VECTOR 02
+    if (filteredKey === "12192020") {
+        revealSecureLayers();
         return;
     }
 
-    if(feedbackBox) {
-        feedbackBox.className = "glitch-screen";
-        feedbackBox.innerText = "CRITICAL SHUTDOWN: VERIFICATION ROUTINE REFUSED. DETECTED PERSPECTIVE DRIFT.";
-        console.warn("AUMC EXCEPTION: 1725 - ANOMALY AT TIME 10:26 PM. DO NOT RELY ON VISUAL CONTINUITY.");
-    }
+    displayTerminalFeedback("CRITICAL ERROR: ACCESS FRAUD IDENTIFIED. OPERATIONAL BLOCK DEPLOYED.");
 }
 
-// 7-LAYER CONTAMINATED SYSTEM MANIFEST INJECTION
-function injectArchivalLayerMatrix() {
-    const container = document.getElementById("aumc-layer-manifest");
-    if (!container) return;
+function revealSecureLayers() {
+    const targetDiv = document.getElementById("aumc-layer-manifest");
+    if (!targetDiv) return;
 
-    container.innerHTML = `
-        <div class="glitch-text" style="border: 2px solid #FF0000; padding: 20px; margin-top: 30px; background: rgba(15,0,0,0.85);">
-            <h3 style="margin-top:0;">[LEVEL 5 CLEARANCE REQUIRED - UNAUTHORIZED SECTOR DEPLOYMENT]</h3>
-            <p style="font-size:0.85em;">WARNING: THE SUBJECT MAY ALREADY BE INSIDE. YOU HEAR FEWER BREATHS THAN BODIES.</p>
-            <hr style="border-color: #ff0000;">
+    targetDiv.innerHTML = `
+        <div class="vhs-screen" style="border: 1px solid #00ff41; padding: 25px; margin-top: 35px; background: rgba(0,10,0,0.9); box-shadow: 0 0 20px rgba(0,255,65,0.15);">
+            <h3 style="color: #ff0033; margin-top:0; letter-spacing:2px; animation: master-jitter 0.5s infinite;">[AUMC SECURE RECORDS - LEVEL 5 CLEARANCE APPROVED]</h3>
+            <p style="font-size:0.85em; opacity:0.6;">Dossier Compiled: As of June 2026 // Target Key: 12192020</p>
+            <hr style="border:0; border-top:1px dashed #00ff41; margin: 15px 0;">
             
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 01 [LOCATION MATRIX]:</strong> <span class="redacted">Fortress Sector</span><br>
-                <em>Context Flag:</em> "The Second Major Location affected by the blight in the napolenic wars, only survivors speak the dialect of the Guts and Blackpowder."<br>
-                <em>Monitoring Agent Auth:</em> agent Rip_Eminemthegoat
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 01: SPATIAL VECTOR MATRIX</h4>
+                <p style="margin:2px 0;"><strong>LOGISTICAL ATTRIBUTION:</strong> Fortress Deployment Grid</p>
+                <p style="margin:2px 0; font-style:italic;">"The Second Major Location affected by the blight in the napolenic wars, only survivors speak the dialect of the Guts and Blackpowder"</p>
+                <p style="margin:2px 0;"><strong>DATA LIAISON VERIFICATION:</strong> agent Rip_Eminemthegoat</p>
+            </div>
+            
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 02: SYMPTOMATIC ANALYSIS DETAILED</h4>
+                <p style="margin:2px 0;"><strong>SUBJECT METRIC:</strong> Ari [Perspective Two Tracker]</p>
+                <p style="margin:2px 0;"><strong>DIAGNOSTIC PATHOLOGY:</strong> Progressive Alpha-Aphasia</p>
+                <p style="margin:2px 0; font-style:italic;">"the first two shall be given through base-16 the next 2 will be shown through the language of 0s and 1s, the last three shall be translated into blocks of six printable bits."</p>
+                <p style="margin:2px 0; opacity:0.7;"><strong>DECAY MARKER SIGNATURE:</strong> 426c7574736175676572 [BLUTSAUGER PARADIGM]</p>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 02 [SENSORY METRIC]:</strong> Perspective Two (Ari Evaluation Frame)<br>
-                <em>Diagnostic Pathology:</em> Aphasia Inducement.<br>
-                <em>Cipher Integrity Map:</em> "the first two shall be given through base-16 the next 2 will be shown through the language of 0s and 1s, the last three shall be translated into blocks of six printable bits."<br>
-                <em>Baseline Signature ID:</em> <span style="color:#00ff41;">426c7574736175676572</span> (Blutsauger Validation Track)
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 03: RECORDED ANOMALIES AND INTERCEPTS</h4>
+                <p style="margin:2px 0;"><strong>EVENT TRACKING ID:</strong> "The Death of Blutsaugers friend"</p>
+                <p style="margin:2px 0;"><strong>CONTACT DIRECTIVE NODE:</strong> Christian Wolff [MUTED EXCLUSION]</p>
+                <p style="margin:2px 0;"><strong>ASTRONOMICAL RECORD SYNCHRONICITY:</strong> Birth of anton felix becvarovski</p>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 03 [TEMPORAL EXCLUSION]:</strong> "The Death of Blutsaugers friend"<br>
-                <em>Historical Contact Anchor:</em> Christian Wolff [Muted Input String]<br>
-                <em>Astronomical Record Trigger:</em> Birth of Anton Felix Becvarovski (Ref Index: 1725 / 295)
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 04: BIOLOGICAL TRANSMISSION ATTRIBUTES</h4>
+                <p style="margin:2px 0;"><strong>OCULAR EVALUATION REPORT:</strong> Vascular hemorrhage in eyes confirmed.</p>
+                <p style="margin:2px 0; font-family:monospace; color:#ff0033;">&gt;-. --- - .... .. -. --. / .- / -... ..- .-.. .-.. . - / - --- / - .... . / .... . .- -.. / -.-. .- -. - / ..-. .. -..-&lt;</p>
+                <p style="margin:2px 0; font-style:italic;">"You [redacted] an Agent... Reporting for duty."</p>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 04 [BIOLOGICAL VECTOR]:</strong> Vascular hemorrhage in eye membrane tissue structures.<br>
-                <em>Encrypted Military Broadcast Protocol:</em> <code>&gt;-. --- - .... .. -. --. / .- / -... ..- .-.. .-.. . - / - --- / - .... . / .... . .- -.. / -.-. .- -. - / ..-. .. -..-&lt;</code><br>
-                <em>Personnel Alignment Stamp:</em> "You [REDACTED] an Agent... Reporting for duty."
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 05: COGNITIVE CORRELATION DIRECTIVES</h4>
+                <p style="margin:2px 0;"><strong>CROSS ROUTING REFERENCE:</strong> "Go back to Layer02" || "The footage contained in Layer02 gives clearance code"</p>
+                <p style="margin:2px 0; font-weight:bold;">INTERROGATION TRACKERS: "Whats her name" -- "Where are you?"</p>
             </div>
 
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 05 [VERIFICATION SEQUENCE]:</strong> Cross-Reference Route Map: "Go back to Layer02" || "The footage contained in Layer02 gives clearance code"<br>
-                <em>Interrogation Triggers:</em> "Whats her name" -- "Where are you?"
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <strong>LAYER 06 [CRITICAL EQUALIZATION]:</strong> Epistemological Alignment Matrix: Rationalism combined with isolated sensory experience.<br>
-                <em style="opacity:0.4;">"One must not pursue one path at the expense of another."</em>
+            <div style="margin-bottom: 25px;">
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 06: SYSTEM EPISTEMOLOGY DOCTRINE</h4>
+                <p style="margin:2px 0;"><strong>METHODOLOGY ARCHETYPE:</strong> Rationalism and experience matrix integration</p>
+                <p style="margin:2px 0; opacity:0.04; font-size:9px;">"One must not persue one path at the expense of another"</p>
             </div>
 
             <div>
-                <strong>LAYER 07 [SYSTEM IDENTIFICATION MATRIX]:</strong> Finite Topological Space Allocation.<br>
-                <em>Corporate Assignment Logic:</em> "Your Corp Id is the precise integer representing the finite order of the group of exotic differentiable structures admitting a topological manifold structure rigidified by a singular structural invariant of (\pi_7(O)), specifically referencing the invariant boundary configurations discovered by Milnor in 1956 for the compact localization of the seven-dimensional orthogonal group space."
+                <h4 style="color:#00ff41; margin-bottom:5px;">LAYER 07: EXOTIC RECOGNITION STRUCTURAL CONSTANT</h4>
+                <p style="margin:2px 0; font-size:0.9em; opacity:0.9;">"your Corp Id is the precise integer representing the finite order of the group of exotic differentiable structures admitting a topological manifold structure rigidified by a singular structural invariant of (\\pi_7(O)), specifically referencing the invariant boundary configurations discovered by Milnor in 1956 for the compact localization of the seven-dimensional orthogonal group space"</p>
             </div>
         </div>
     `;
     
+    displayTerminalFeedback("AUMC CORE LAYER FILES RESTORED PRODUCING SYSTEM DUMP.");
+}
+
+function displayTerminalFeedback(textMessage) {
     const feedbackBox = document.getElementById("terminal-feedback-log");
-    if(feedbackBox) {
+    if (!feedbackBox) return;
+
+    if (textMessage.includes("ERROR")) {
+        feedbackBox.className = "glitch-screen";
+        feedbackBox.innerText = textMessage;
+        playAnomalousBeep(120, 0.4);
+    } else {
         feedbackBox.className = "";
-        feedbackBox.innerText = "SUCCESS: UNRELIABLE DATA DEPLOYED. PREVIOUSLY ISSUED GUIDANCE IS INCOMPLETE.";
+        feedbackBox.style.color = "#00ff41";
+        feedbackBox.innerText = textMessage;
+        playAnomalousBeep(440, 0.1);
     }
 }
 
-// ENVIRONMENTAL CLICKABLE CORRUPTIONS
-function initClickableAnomalies() {
-    document.addEventListener("click", function(e) {
-        if(e.target && e.target.classList.contains("clickable-anomaly")) {
-            e.target.style.color = "#FF0000";
-            e.target.innerText = " [ANY ACKNOWLEDGMENT MAY BE INTERPRETED AS PERMISSION] ";
-            console.error("CRITICAL EXCEPTION: Perspective determines structure. The house remembers.");
-        }
-    });
+function playAnomalousBeep(freq, duration) {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start();
+        oscillator.stop(audioCtx.currentTime + duration);
+    } catch(e) {
+        console.log("Audio pipeline suppressed by browser layout constraints.");
+    }
 }
 
-// AUDIO ENVIRONMENT FRAMEWORK
-function initAudioEnvironment() {
-    window.addEventListener("click", function() {
-        // Initializes dynamic web audio metrics gracefully once user confirms baseline screen focus interaction
-        if (!window.AUMCAudioContext) {
-            window.AUMCAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-            runLowFrequencyHum();
+function initializeEasterEggs() {
+    // Hidden monitoring alert logs generated dynamically to console matrix
+    console.warn("[AUMC SECURITY WARNING]: Any acknowledgment may be interpreted as permission.");
+    console.error("[ALERT]: The subject may already be inside. Do not trust excessive friendliness.");
+    
+    // Ambient body clicks trigger subtle background audio infrastructure initialization
+    document.body.addEventListener("click", function() {
+        const loopTrack = document.getElementById("ambient-whisper");
+        if (loopTrack && loopTrack.paused) {
+            loopTrack.play().catch(() => {});
         }
     }, { once: true });
-}
-
-function runLowFrequencyHum() {
-    try {
-        let osc = window.AUMCAudioContext.createOscillator();
-        let gain = window.AUMCAudioContext.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(55, window.AUMCAudioContext.currentTime); // 55Hz Low Muffled Breathing Resonance
-        gain.gain.setValueAtTime(0.008, window.AUMCAudioContext.currentTime);
-        osc.connect(gain);
-        gain.connect(window.AUMCAudioContext.destination);
-        osc.start();
-    } catch(e) {}
 }

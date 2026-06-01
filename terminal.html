@@ -1,8 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="style.css"></head>
+<body>
 <div class="vhs-screen">
+    <nav class="nav">
+        <a href="index.html">Home</a><a href="guidance.html">Guidance</a><a href="archive.html">Archive</a>
+        <a href="research.html">Research</a><a href="perspective.html">Perspectives</a><a href="recruitment.html">Recruitment</a>
+        <a href="terminal.html">Terminal</a><a href="restricted.html">Restricted</a>
+    </nav>
+    <h1>SYSTEM TERMINAL // AUTHORIZED ACCESS ONLY</h1>
     <div class="panel">
-        <h2>SYSTEM TERMINAL // OVERSIGHT ACTIVE</h2>
-        <input id="terminal" placeholder="Enter Command..." />
-        <div id="output"></div>
-        <div class="glitch-text">Any acknowledgment may be interpreted as permission.</div>
+        <input id="terminalInput" placeholder="Enter Node Layer (01-07)..." style="background:black; color:#00FF41; border:1px solid #00FF41; width:80%;">
+        <button onclick="processCmd()">EXECUTE</button>
+        <div id="out"></div>
     </div>
+    <script src="main.js"></script>
+    <footer>AUMC SECURE NETWORK v2.4.1 | Any acknowledgment may be interpreted as permission.</footer>
 </div>
+</body>
+</html>

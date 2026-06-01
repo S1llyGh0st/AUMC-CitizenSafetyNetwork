@@ -1,27 +1,19 @@
 /* ==========================================================================
-   AUMC SYSTEM INTERFACE: GLOBAL STYLE SPECIFICATION MATRIX
+   AUMC-CSN EMERGENCY BACKPLANE SYSTEM CODE (style.css)
    ========================================================================== */
 
-:root {
-    --phosphor-green: #00FF41;
-    --phosphor-glow: rgba(0, 255, 65, 0.25);
-    --glitch-red: #ff0033;
-    --glitch-red-glow: rgba(255, 0, 51, 0.4);
-    --terminal-black: #020202;
-    --scanline-color: rgba(0, 0, 0, 0.55);
-}
-
 body {
-    background-color: var(--terminal-black);
-    color: var(--phosphor-green);
+    background-color: #020401; 
+    color: #00FF41;            
     font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 30px;
     overflow-x: hidden;
     position: relative;
+    --vhs-line: rgba(0, 255, 65, 0.04);
 }
 
-/* MASTER CRT INTERLACE FILTER layer */
+/* CRT INTERLACE SCANLINE EMULATION LAYER */
 body::after {
     content: "";
     position: fixed;
@@ -31,154 +23,103 @@ body::after {
     z-index: 9999;
     background: repeating-linear-gradient(
         0deg,
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 1px,
-        var(--scanline-color) 1px, 
-        var(--scanline-color) 3px
+        var(--vhs-line) 0px,
+        var(--vhs-line) 1px,
+        rgba(0, 0, 0, 0.65) 1px, 
+        rgba(0, 0, 0, 0.65) 3px
     );
-    animation: vhs-flicker 0.2s infinite;
+    animation: vhs-flicker 0.12s infinite;
+    opacity: 0.85;
 }
 
-/* PHYSICAL RADIAL MONITOR BLOSSOM SCREEN GLOW */
+/* RADIAL CRT TUBE SHADOW GLOW MATRIX */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: radial-gradient(
-        circle at center,
-        rgba(0, 255, 65, 0.04) 0%, 
-        rgba(0, 0, 0, 0.8) 100%
+        circle,
+        rgba(0, 255, 65, 0.03) 0%, 
+        rgba(0, 0, 0, 0.75) 100%
     );
     z-index: 9998;
     pointer-events: none;
 }
 
-/* TERMINAL SCREEN EMULATION FILTER */
+/* BIOLOGICAL CORE BREATHING INTERFACE WRAPPER */
 .vhs-screen {
     position: relative;
     z-index: 10;
     text-shadow: 
-        0 0 2px var(--phosphor-green),   
-        0 0 8px var(--phosphor-glow);
+        0 0 2px rgba(0, 255, 65, 0.9),   
+        0 0 8px rgba(0, 255, 65, 0.6), 
+        0 0 15px rgba(0, 255, 65, 0.3);
     filter: contrast(1.3) brightness(1.1);
     letter-spacing: 0.5px;
+    /* The core breathing engine driving all files */
+    animation: breathing-monitor 6s ease-in-out infinite; 
 }
 
-/* UNIFIED NAVIGATION CONTAINER */
-.system-ui-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--phosphor-green);
-    background: rgba(0, 15, 0, 0.85);
-    padding: 12px 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 15px var(--phosphor-glow);
-}
-
-.nav-branding {
-    font-weight: bold;
-    font-size: 0.9em;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 12px;
-}
-
-.nav-ui-btn {
-    text-decoration: none;
-    color: var(--phosphor-green);
-    border: 1px solid var(--phosphor-green);
-    padding: 6px 14px;
-    font-size: 0.85em;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    transition: all 0.15s ease-in-out;
-}
-
-.nav-ui-btn:hover, .nav-ui-btn.active-ui-btn {
-    background: var(--phosphor-green);
-    color: var(--terminal-black);
-    box-shadow: 0 0 12px var(--phosphor-green);
-    cursor: crosshair;
-}
-
-/* CORRUPTED ELEMENT MODIFIERS */
+/* DYNAMIC QUANTUM JITTER GLITCH */
 .glitch-screen {
-    color: var(--glitch-red) !important;
+    color: #ff0000 !important;
     text-shadow: 
-        0 0 2px var(--glitch-red),
-        0 0 12px var(--glitch-red-glow) !important;
-    animation: master-jitter 0.08s infinite !important;
+        0 0 2px rgba(255, 0, 0, 1),
+        0 0 12px rgba(255, 0, 0, 0.7) !important;
+    --vhs-line: rgba(255, 0, 0, 0.15);
+    animation: jitter 0.07s infinite !important;
 }
 
-.forced-footer {
-    margin-top: 80px;
-    padding-top: 20px;
-    border-top: 1px dashed rgba(0, 255, 65, 0.2);
-    font-size: 0.85em;
-    opacity: 0.6;
+/* NAVIGATION SYSTEM UI ELEMENT OVERRIDES */
+.system-ui-nav a {
+    transition: all 0.2s ease-in-out;
+}
+.system-ui-nav a:hover {
+    background: #00ff41 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
 }
 
-.system-hidden-flag {
-    opacity: 0.02;
-    font-size: 9px;
-    user-select: none;
-    pointer-events: none;
-    transition: opacity 1s;
+/* ARCHIVE INTERFACE CONTAINERS */
+.bulletin-box {
+    border: 1px solid #00ff41;
+    background: rgba(0, 15, 0, 0.4);
+    padding: 20px;
+    margin-bottom: 25px;
 }
 
-.system-hidden-flag:hover {
-    opacity: 0.15;
-}
-
-/* FORMS AND INPUT NODES */
 button, input[type="text"] {
-    background: #001100;
-    color: var(--phosphor-green);
-    border: 1px solid var(--phosphor-green);
-    padding: 10px 18px;
-    font-family: "Courier New", monospace;
-    font-size: 0.95em;
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+    background: #001000;
+    color: #00ff41;
+    border: 1px solid #00ff41;
+    padding: 8px 16px;
+    font-family: monospace;
     outline: none;
-}
-
-button {
-    cursor: crosshair;
-    font-weight: bold;
-    transition: 0.1s;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
 }
 
 button:hover {
-    background: var(--phosphor-green);
-    color: var(--terminal-black);
-    box-shadow: 0 0 15px var(--phosphor-green);
+    background: #00ff41;
+    color: #000;
+    cursor: crosshair;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
 }
 
-/* EXPERIMENTAL BREATHING WAVEFORM ANIMATION */
-.breathing-pulse {
-    animation: subtle-chest-heave 4s ease-in-out infinite;
+/* ANIMATION LOGIC SPECIFICATIONS */
+@keyframes breathing-monitor {
+    0% { transform: scale(1); opacity: 0.93; filter: brightness(1); }
+    50% { transform: scale(1.003); opacity: 1; filter: brightness(1.15); }
+    100% { transform: scale(1); opacity: 0.93; filter: brightness(1); }
 }
 
-/* CORE TERMINAL ANIMATION PROTOCOLS */
 @keyframes vhs-flicker {
-    0% { opacity: 0.96; }
-    50% { opacity: 1; }
-    100% { opacity: 0.97; }
+    0% { opacity: 0.82; }
+    50% { opacity: 0.89; }
+    100% { opacity: 0.84; }
 }
 
-@keyframes master-jitter {
-    0% { transform: translate(0,0) skewX(0deg); }
-    25% { transform: translate(-1px, 1px) skewX(-1deg); }
-    50% { transform: translate(1px, -1px) skewX(1deg); }
-    75% { transform: translate(-1px, -1px) skewX(0deg); }
-    100% { transform: translate(1px, 1px) skewX(0deg); }
-}
-
-@keyframes subtle-chest-heave {
-    0%, 100% { transform: scale(1); opacity: 0.9; }
-    50% { transform: scale(1.015); opacity: 1; text-shadow: 0 0 12px var(--phosphor-green); }
+@keyframes jitter {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-1px, 1px); }
+    100% { transform: translate(1px, -1px); }
 }

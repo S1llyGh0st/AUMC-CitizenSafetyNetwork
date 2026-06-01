@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AUMC-CSN // TERMINAL</title>
+    <title>AUMC-CSN // TERMINAL INTERFACE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
@@ -11,26 +11,31 @@
 
 <body>
 
+    <!-- =========================
+         TERMINAL CORE NODE
+    ========================== -->
     <div class="panel terminal">
 
         <h1 class="glitch" data-text="SYSTEM TERMINAL">
             SYSTEM TERMINAL
         </h1>
 
-        <p>
+        <p class="terminal">
             NODE ACCESS GRANTED // LIMITED PRIVILEGES ENABLED
         </p>
 
-        <br>
+        <p class="terminal infected">
+            WARNING: ALL INPUT IS MONITORED BY AUMC OVERSIGHT LAYER
+        </p>
 
-        <p>
+        <p class="terminal">
             TYPE COMMAND BELOW:
         </p>
 
         <input 
             id="terminalInput"
             type="text"
-            placeholder="enter command... (help, status, nodes, 46696565)"
+            placeholder="help, status, nodes, 12192020, 46696565"
             style="
                 width: 100%;
                 padding: 10px;
@@ -43,53 +48,96 @@
             "
         />
 
-        <br><br>
-
         <div class="psa">
-            SYSTEM NOTE: Unauthorized commands may trigger containment protocols.
+            SYSTEM NOTE: Unauthorized queries may trigger containment response layers.
         </div>
 
     </div>
 
     <!-- =========================
-         ACTIVE LOG FEED
+         LIVE SYSTEM FEED
     ========================== -->
-
     <div class="panel">
-        <h2>ACTIVE LOG FEED</h2>
+
+        <h2>ACTIVE SYSTEM FEED</h2>
 
         <div class="terminal">
-            [BOOT] INITIALIZING NODE LINK...
+            [BOOT] INITIALIZING AUMC-CSN TERMINAL LINK...
         </div>
 
         <div class="terminal">
-            [SYNC] CONNECTED TO AUMC-CSN ARCHIVE NETWORK
+            [SYNC] ARCHIVE NODE CONNECTION ESTABLISHED
         </div>
 
         <div class="terminal">
-            [WARNING] MEMORY SEGMENTS CORRUPTED IN SECTOR 3
+            [SCAN] MEMORY SEGMENTS STABLE // MINOR DESYNC DETECTED
         </div>
 
         <div class="terminal infected">
-            [ALERT] UNSTABLE SIGNAL DETECTED IN RECRUITMENT LAYER
+            [ALERT] RECRUITMENT LAYER ANOMALY DETECTED
         </div>
 
         <div class="terminal">
-            [INFO] TYPE "help" FOR AVAILABLE COMMANDS
-        </div>
-
-        <div class="terminal hidden recruitment-anomaly">
-            [UNKNOWN] SIGNAL ORIGIN: NOT LISTED IN AUMC DIRECTORY
+            [INFO] ENTER "help" FOR COMMAND DIRECTORY
         </div>
 
     </div>
 
     <!-- =========================
-         ARG BACKGROUND GLITCH (VERY LOW VISIBILITY)
+         HIDDEN RECRUITMENT LAYER (ARG ENTRY POINT)
     ========================== -->
+    <div class="panel">
 
+        <h2>RECRUITMENT TRACE LOG</h2>
+
+        <div class="terminal hidden recruitment-anomaly">
+            [UNKNOWN] SIGNAL ORIGIN NOT REGISTERED IN AUMC DIRECTORY
+        </div>
+
+        <div class="terminal hidden">
+            [GLITCH] MEMORY ECHO DETECTED IN LOWER NODE STRUCTURE
+        </div>
+
+        <div class="terminal infected hidden">
+            [WARNING] SUBJECT INTERACTION MAY CAUSE NODE SPLIT EVENT
+        </div>
+
+    </div>
+
+    <!-- =========================
+         COMMAND REFERENCE PANEL (META LORE LAYER)
+    ========================== -->
+    <div class="panel">
+
+        <h2>COMMAND DIRECTORY</h2>
+
+        <div class="terminal">
+            help → show available commands
+        </div>
+
+        <div class="terminal">
+            status → system integrity report
+        </div>
+
+        <div class="terminal">
+            nodes → active network overview
+        </div>
+
+        <div class="terminal">
+            12192020 → recruitment access fragment
+        </div>
+
+        <div class="terminal infected">
+            46696565 → OVERRIDE KEY (DO NOT EXECUTE OUTSIDE CONTROL NODE)
+        </div>
+
+    </div>
+
+    <!-- =========================
+         ARG BACKGROUND LEAK (LOW VISIBILITY)
+    ========================== -->
     <div class="arg-glitch-hidden">
-        S____G____ has hacked the [REDACTED] Page By putting the Code [REDACTED] In Base-16 and the only letter in the code in alphabetical order
+        AUMC TRACE: S____G____ encoded fragment persists in base-16 memory shard // observer mismatch detected
     </div>
 
 </body>

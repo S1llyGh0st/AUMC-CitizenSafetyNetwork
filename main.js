@@ -1,65 +1,64 @@
 /**
- * AUMC-CSN MASTER RUNTIME SYSTEM KERNEL
- * Unified validation handler, dynamic menu trackers, and localized teardowns.
+ * AUMC-CSN CORE DISPATCH OPERATING KERNEL
+ * Manages validation arrays, data structures, and environmental decay values.
  */
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Establish Navigation Integrity States
-    const activeRoute = window.location.pathname.split("/").pop();
-    const routers = document.querySelectorAll(".nav-matrix a");
-    routers.forEach(route => {
-        if (route.getAttribute("href") === activeRoute) {
-            route.classList.add("active");
+    // 1. Process Dynamic Navigation Active States
+    const activeRoute = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-network a").forEach(anchor => {
+        if (anchor.getAttribute("href") === activeRoute) {
+            anchor.classList.add("active");
         }
     });
 
-    // 2. Gateway Credential Matrix Router
+    // 2. Continuous Environmental Degradation Monitoring (Vignette System)
+    window.addEventListener("scroll", () => {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalScroll > 0) {
+            const scrollRatio = window.scrollY / totalScroll;
+            const targetVignette = document.querySelector(".vignette-overlay");
+            if (targetVignette) {
+                // As the user goes lower, the screen edges darken toward zero visibility
+                targetVignette.style.boxShadow = `inset 0 0 ${100 + (scrollRatio * 150)}px rgba(0, 0, 0, ${0.85 + (scrollRatio * 0.15)})`;
+            }
+        }
+    });
+
+    // 3. Central Authentication Gateway Management Loop
     const fieldInput = document.getElementById("terminal-input");
     const triggerBtn = document.getElementById("terminal-submit");
-    const terminalOutput = document.getElementById("terminal-feedback");
-    const manifestBlock = document.getElementById("layer-manifest-section");
+    const feedbackPanel = document.getElementById("terminal-feedback");
+    const latentManifest = document.getElementById("layer-manifest-section");
 
     if (triggerBtn && fieldInput) {
-        const executeValidation = () => {
-            const clearText = fieldInput.value.trim();
-            
-            if (clearText === "46696565") {
-                terminalOutput.innerHTML = "<span class='glitch-override' style='color:#ff0000;'>CRITICAL ANOMALY: EXECUTING DIRECT REDIRECTION TO THE UNCONCEALED OVERLAY...</span>";
+        const evaluateClearance = () => {
+            const normalizedToken = fieldInput.value.trim();
+
+            if (normalizedToken === "46696565") {
+                feedbackPanel.innerHTML = "<span class='glitch-text' style='color:#ff0000;'>[ALERT] DIRECT REDIRECTION DETECTED. BYPASSING PUBLIC CORE...</span>";
                 fieldInput.disabled = true;
                 triggerBtn.disabled = true;
                 setTimeout(() => {
                     window.location.href = "YOUROWNUTTERANCE.html";
-                }, 2000);
+                }, 1800);
             } 
-            else if (clearText === "12192020") {
-                terminalOutput.innerHTML = "<span style='color:#00ff41;'>SUCCESS: INTEGRATED DOCTRINE MEMO AND SEVEN-LAYER MANIFEST SECURED.</span>";
-                if (manifestBlock) {
-                    manifestBlock.style.display = "block";
-                    manifestBlock.scrollIntoView({ behavior: 'smooth' });
+            else if (normalizedToken === "12192020") {
+                feedbackPanel.innerHTML = "<span style='color:#00ff41;'>[SUCCESS] CRITICAL COGNITIVE LAYER MANIFEST DECAPPED. PARSING TWINE NODE MAP...</span>";
+                if (latentManifest) {
+                    latentManifest.style.display = "block";
+                    latentManifest.scrollIntoView({ behavior: 'smooth' });
                 }
             } 
             else {
-                terminalOutput.innerHTML = "<span style='color:#ff0000;'>SECURITY ALERT: CODE MATCH MISALIGNED. INCIDENT RECORDED IN AUDIT TABLE.</span>";
-                document.body.style.transform = "scale(1.02)";
-                setTimeout(() => { document.body.style.transform = "none"; }, 100);
+                feedbackPanel.innerHTML = "<span style='color:#ff0000;'>[REJECTED] PARITY REJECTED BY SYSTEM OVERWATCH. EVENT FLAGGED FOR RECOVERY DESK.</span>";
+                document.body.style.filter = "invert(1) brightness(0.3)";
+                setTimeout(() => document.body.style.filter = "none", 120);
             }
         };
 
-        triggerBtn.addEventListener("click", executeValidation);
+        triggerBtn.addEventListener("click", evaluateClearance);
         fieldInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") executeValidation();
+            if (e.key === "Enter") evaluateClearance();
         });
-    }
-
-    // 3. Simulated Static Degradation
-    const glitchContainers = document.querySelectorAll(".glitch-override");
-    if (glitchContainers.length > 0) {
-        setInterval(() => {
-            glitchContainers.forEach(el => {
-                if (Math.random() > 0.85) {
-                    el.style.transform = `translateX(${Math.floor(Math.random() * 6) - 3}px) skew(${Math.floor(Math.random() * 4) - 2}deg)`;
-                    setTimeout(() => { el.style.transform = "none"; }, 150);
-                }
-            });
-        }, 3000);
     }
 });

@@ -1,24 +1,24 @@
 /* ====================================================================
-   AUMC-CSN MASTER INFRASTRUCTURE STYLING CORE
+   AUMC-CSN DIRECTIVE 2026-ALPHA // NATIONAL EMERGENCY OVERLAY SYSTEM
    ==================================================================== */
 
-@keyframes globalBreathing {
-    0% { transform: scale(1); filter: brightness(1); }
-    50% { transform: scale(1.005); filter: brightness(1.03); }
-    100% { transform: scale(1); filter: brightness(1); }
+@keyframes systemPulse {
+    0% { transform: scale(1.000); filter: brightness(1) contrast(1); }
+    50% { transform: scale(1.004); filter: brightness(0.92) contrast(1.05); }
+    100% { transform: scale(1.000); filter: brightness(1) contrast(1); }
 }
 
-@keyframes scanlineMove {
+@keyframes crtScanlines {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100%); }
 }
 
-@keyframes signalGlitch {
-    0% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
-    95% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
-    96% { text-shadow: -3px 0 #ff0000, 2px 0 #0000ff; transform: skewX(-1deg); }
-    98% { text-shadow: 3px 0 #ff0000, -2px 0 #0000ff; transform: skewX(1deg); }
-    100% { text-shadow: 0 0 4px rgba(0,255,65,0.5); }
+@keyframes glitchFlicker {
+    0% { text-shadow: 0 0 3px rgba(0,255,65,0.4); opacity: 1; }
+    49% { text-shadow: 0 0 3px rgba(0,255,65,0.4); opacity: 1; }
+    50% { text-shadow: -1.5px 0 #ff0000, 1.5px 0 #0000ff; opacity: 0.85; }
+    52% { text-shadow: 0 0 3px rgba(0,255,65,0.4); opacity: 1; }
+    100% { text-shadow: 0 0 3px rgba(0,255,65,0.4); opacity: 1; }
 }
 
 * { box-sizing: border-box; }
@@ -29,20 +29,20 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 25px;
-    line-height: 1.4;
-    min-height: 100vh;
+    overflow-x: hidden;
     position: relative;
-    /* Mandated Imperceptible 10-Second Breathing Anomaly Loop */
-    animation: globalBreathing 10s ease-in-out infinite;
+    min-height: 100vh;
+    /* GLOBAL IMPERCEPTIBLE BREATHING MATRIX: Harmonized to One Heartbeat Per Minute (60s) */
+    animation: systemPulse 60s ease-in-out infinite;
 }
 
-/* CRT Screen Simulation Overlay Layers */
+/* CRT Scanning Filter Layer */
 body::before {
     content: " ";
     display: block;
     position: fixed;
     top: 0; left: 0; bottom: 0; right: 0;
-    background: linear-gradient(rgba(10, 12, 10, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
     background-size: 100% 4px;
     z-index: 9999;
     pointer-events: none;
@@ -53,52 +53,42 @@ body::after {
     display: block;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 6px;
-    background: rgba(0, 255, 65, 0.08);
+    background: rgba(0, 255, 65, 0.05);
     z-index: 10000;
     pointer-events: none;
-    animation: scanlineMove 12s linear infinite;
+    animation: crtScanlines 12s linear infinite;
 }
 
-/* Dynamic Vignette System: Deepens visually based on user interaction depth */
-.vignette-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.85);
-    pointer-events: none;
-    z-index: 9998;
-    transition: box-shadow 0.5s ease;
-}
-
-/* Core Container Blocks */
+/* Content Container Architecture */
 .terminal-wrapper {
     max-width: 1100px;
     margin: 0 auto;
     border: 1px solid #00ff41;
     padding: 30px;
-    background: rgba(4, 5, 4, 0.97);
+    background: rgba(3, 4, 3, 0.98);
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
 }
 
 .terminal-header {
-    border-bottom: 3px double #00ff41;
-    padding-bottom: 20px;
+    border-bottom: 2px double #00ff41;
+    padding-bottom: 15px;
     margin-bottom: 25px;
 }
 
-/* Architecture Global Navigation */
+/* Universal Network Navigation */
 .nav-network {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
+    gap: 12px;
+    margin: 15px 0;
+    padding: 10px 0;
     border-bottom: 1px dashed #00ff41;
 }
 
 .nav-network a {
     color: #00ff41;
     text-decoration: none;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border: 1px solid transparent;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -107,40 +97,38 @@ body::after {
 
 .nav-network a:hover, .nav-network a.active {
     border-color: #00ff41;
-    background: rgba(0, 255, 65, 0.12);
-    animation: signalGlitch 0.2s linear;
+    background: rgba(0, 255, 65, 0.08);
 }
 
-/* Visual Level Alerts & Containers */
-.alert-crisis {
-    border: 2px solid #ff0000;
-    background: rgba(255, 0, 0, 0.07);
+/* Core System Alerts */
+.alert-box {
+    border: 1px solid #ff0000;
+    background: rgba(255, 0, 0, 0.04);
     color: #ff0000;
-    padding: 20px;
-    margin: 25px 0;
+    padding: 15px;
+    margin: 20px 0;
     font-weight: bold;
 }
 
-.secure-log-block {
+.secure-log {
     background: #010201;
-    border-left: 4px solid #00ff41;
-    padding: 20px;
+    border-left: 3px solid #00ff41;
+    padding: 18px;
     margin: 20px 0;
     white-space: pre-wrap;
-    font-size: 0.88rem;
-    overflow-x: auto;
+    font-size: 0.9rem;
+    color: #a0ffa0;
 }
 
 .glitch-text {
-    animation: signalGlitch 5s infinite;
-    display: inline-block;
+    animation: glitchFlicker 5s infinite;
 }
 
-/* Dynamic Interaction Components */
+/* Universal Input Components */
 .terminal-input-group {
     display: flex;
-    margin: 25px 0;
-    gap: 15px;
+    margin: 20px 0;
+    gap: 12px;
 }
 
 .terminal-field {
@@ -150,59 +138,89 @@ body::after {
     padding: 12px;
     font-family: monospace;
     flex-grow: 1;
-    font-size: 1rem;
 }
 
 .terminal-field:focus {
     outline: none;
-    box-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
 .terminal-btn {
     background: #00ff41;
     color: #000;
     border: none;
-    padding: 12px 25px;
+    padding: 12px 24px;
     font-family: monospace;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1rem;
 }
 
 .terminal-btn:hover {
-    background: #000;
+    background: #010201;
     color: #00ff41;
     border: 1px solid #00ff41;
 }
 
-/* Data Layout Grid Elements */
-.lore-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 25px 0;
+/* In-Universe Subversive Layer (ARG Triggered) */
+.subversive-manifest {
+    border: 1px dashed #ff0000;
+    background: rgba(15, 2, 2, 0.95);
+    padding: 20px;
+    margin-top: 30px;
+    display: none;
 }
 
-@media (max-width: 768px) {
-    .lore-grid { grid-template-columns: 1fr; }
+.layer-block {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #441111;
+    padding-bottom: 15px;
+}
+
+.layer-title {
+    color: #ff3333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Forced Narrative System Footer Overlay */
+.forced-overlay-footer {
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgba(0, 255, 65, 0.6);
+}
+
+/* Barely Visible ARG Anchor */
+.hidden-arg-anchor {
+    opacity: 0.03;
+    font-size: 0.65rem;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    user-select: none;
+    color: #00ff41;
 }
 
 /* ====================================================================
-   TRUTH STRATUM SYSTEM (Rapid Outbreak Evolution Override)
+   TRUTH MATRIX EXCLUSION LAYOUT (YOUROWNUTTERANCE OVERRIDE)
    ==================================================================== */
 body.truth-layer {
-    background-color: #0b0202;
+    background-color: #0a0101;
     color: #ff0000;
-    animation: globalBreathing 4s ease-in-out infinite; /* Desperate biological acceleration */
+    /* Rapid physiological reaction acceleration */
+    animation: systemPulse 12s ease-in-out infinite; 
 }
 
 body.truth-layer::after {
-    background: rgba(255, 0, 0, 0.09);
+    background: rgba(255, 0, 0, 0.05);
 }
 
 body.truth-layer .terminal-wrapper {
     border-color: #ff0000;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
 }
 
 body.truth-layer .nav-network a {
@@ -211,5 +229,5 @@ body.truth-layer .nav-network a {
 
 body.truth-layer .nav-network a:hover, body.truth-layer .nav-network a.active {
     border-color: #ff0000;
-    background: rgba(255, 0, 0, 0.15);
+    background: rgba(255, 0, 0, 0.08);
 }

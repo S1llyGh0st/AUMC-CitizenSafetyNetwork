@@ -1,64 +1,52 @@
 /**
- * AUMC-CSN CORE DISPATCH OPERATING KERNEL
- * Manages validation arrays, data structures, and environmental decay values.
+ * AUMC-CSN MASTER ROUTING SYSTEM & INTERACTIVE DEGRADATION LOGIC
+ * Synchronized ARG dynamic validator across the portal schema.
  */
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Process Dynamic Navigation Active States
-    const activeRoute = window.location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".nav-network a").forEach(anchor => {
-        if (anchor.getAttribute("href") === activeRoute) {
-            anchor.classList.add("active");
+    // 1. Maintain Link State Integration
+    const pathTokens = window.location.pathname.split("/");
+    const filename = pathTokens[pathTokens.length - 1] || "index.html";
+    document.querySelectorAll(".nav-network a").forEach(link => {
+        if (link.getAttribute("href") === filename) {
+            link.classList.add("active");
         }
     });
 
-    // 2. Continuous Environmental Degradation Monitoring (Vignette System)
-    window.addEventListener("scroll", () => {
-        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-        if (totalScroll > 0) {
-            const scrollRatio = window.scrollY / totalScroll;
-            const targetVignette = document.querySelector(".vignette-overlay");
-            if (targetVignette) {
-                // As the user goes lower, the screen edges darken toward zero visibility
-                targetVignette.style.boxShadow = `inset 0 0 ${100 + (scrollRatio * 150)}px rgba(0, 0, 0, ${0.85 + (scrollRatio * 0.15)})`;
-            }
-        }
-    });
+    // 2. Gateway Code Processing Core
+    const codeField = document.getElementById("terminal-input");
+    const execButton = document.getElementById("terminal-submit");
+    const feedTarget = document.getElementById("terminal-feedback");
+    const leakContainer = document.getElementById("layer-manifest-section");
 
-    // 3. Central Authentication Gateway Management Loop
-    const fieldInput = document.getElementById("terminal-input");
-    const triggerBtn = document.getElementById("terminal-submit");
-    const feedbackPanel = document.getElementById("terminal-feedback");
-    const latentManifest = document.getElementById("layer-manifest-section");
+    if (execButton && codeField) {
+        const processSubmission = () => {
+            const secretValue = codeField.value.trim();
 
-    if (triggerBtn && fieldInput) {
-        const evaluateClearance = () => {
-            const normalizedToken = fieldInput.value.trim();
-
-            if (normalizedToken === "46696565") {
-                feedbackPanel.innerHTML = "<span class='glitch-text' style='color:#ff0000;'>[ALERT] DIRECT REDIRECTION DETECTED. BYPASSING PUBLIC CORE...</span>";
-                fieldInput.disabled = true;
-                triggerBtn.disabled = true;
+            if (secretValue === "46696565") {
+                feedTarget.innerHTML = "<span class='glitch-text' style='color:#ff0000;'>[CRITICAL DETACHMENT]: EQUALIZING TIMELINE MATRIX. REDIRECTING...</span>";
+                codeField.disabled = true;
+                execButton.disabled = true;
                 setTimeout(() => {
                     window.location.href = "YOUROWNUTTERANCE.html";
                 }, 1800);
             } 
-            else if (normalizedToken === "12192020") {
-                feedbackPanel.innerHTML = "<span style='color:#00ff41;'>[SUCCESS] CRITICAL COGNITIVE LAYER MANIFEST DECAPPED. PARSING TWINE NODE MAP...</span>";
-                if (latentManifest) {
-                    latentManifest.style.display = "block";
-                    latentManifest.scrollIntoView({ behavior: 'smooth' });
+            else if (secretValue === "12192020") {
+                feedTarget.innerHTML = "<span style='color:#00ff41;'>[CLEARANCE GRANTED]: LEAKED DOCTRINE STRATA APPRENDED BELOW.</span>";
+                if (leakContainer) {
+                    leakContainer.style.display = "block";
+                    leakContainer.scrollIntoView({ behavior: 'smooth' });
                 }
             } 
             else {
-                feedbackPanel.innerHTML = "<span style='color:#ff0000;'>[REJECTED] PARITY REJECTED BY SYSTEM OVERWATCH. EVENT FLAGGED FOR RECOVERY DESK.</span>";
-                document.body.style.filter = "invert(1) brightness(0.3)";
+                feedTarget.innerHTML = "<span style='color:#ff0000;'>[PARSING REJECTION]: CORRUPTION THRESHOLD EXCEEDED. LOGGED.</span>";
+                document.body.style.filter = "brightness(0.3) invert(0.1)";
                 setTimeout(() => document.body.style.filter = "none", 120);
             }
         };
 
-        triggerBtn.addEventListener("click", evaluateClearance);
-        fieldInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") evaluateClearance();
+        execButton.addEventListener("click", processSubmission);
+        codeField.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") processSubmission();
         });
     }
 });
